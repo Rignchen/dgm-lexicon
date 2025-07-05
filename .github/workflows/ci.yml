@@ -1,0 +1,20 @@
+name: Test json db file
+on:
+  push:
+    paths:
+      - 'public/db.json'
+      - 'test-db.py'
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Run test.py
+        run: python test-db.py
+
