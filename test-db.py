@@ -12,7 +12,7 @@ struct = {
 			"id": int,
 			"word": str,
 			"definition": str,
-			"first_time_used": (str, lambda x: [] if match(r'^\d{4}-\d{2}-\d{2}$', x) is not None else [f"Invalid date format: {x}"]),
+			"first_time_used": (str, lambda x: [] if match(r'^\d{4}-\d{2}-\d{2}$', x) is not None else [f"Invalid date format: {repr(x)}"]),
 		}
 	]
 }
