@@ -5,7 +5,8 @@
 		"#types/*": "./src/types/*.js",
 		"#services/*": "./src/app/services/*.js",
 		"#components/*": "./src/app/components/*/*.js",
-		"#pages/*": "./src/app/pages/*/*.js"
+		"#pages/*": "./src/app/pages/*/*.js",
+		"#public/*": "./public/*"
 	},
 	"scripts": {
 		"ng": "ng",

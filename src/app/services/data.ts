@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import LexiconEntry from '#types/lexicon-entry'
-import { readFileSync } from 'fs';
+import * as jsonData from '#public/db.json';
 
 @Injectable({
 	providedIn: 'root'
 })
 export class Data {
-	// read json file "public/db.json"
-	public lexicon: LexiconEntry[] = LexiconEntry.fromArray(JSON.parse(readFileSync('public/db.json', 'utf-8')).lexicon);
+	// read json file "/db.json"
+	public lexicon: LexiconEntry[] = LexiconEntry.fromArray(jsonData.lexicon);
 }
