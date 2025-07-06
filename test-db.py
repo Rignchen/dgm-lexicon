@@ -10,8 +10,8 @@ struct = {
 	"lexicon": [
 		{
 			"id": int,
-			"word": str,
-			"definition": str,
+			"word": (str, lambda x: [] if x else ["Word cannot be empty"]),
+			"definition": (str, lambda x: [] if x else ["Definition cannot be empty"]),
 			"first_time_used": (str, lambda x: [] if match(r'^\d{4}-\d{2}-\d{2}$', x) is not None else [f"Invalid date format: {repr(x)}"]),
 		}
 	]
