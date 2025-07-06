@@ -27,4 +27,8 @@ export class Word implements OnInit {
 			this.entry = filtered[0];
 		});
 	}
+
+	static redirect(route: Router, id: number) {
+		route.navigate(['/words', id]);
+	}
 }
