@@ -1,5 +1,3 @@
 <div class="flex">
-	<div *ngFor="let entry of data.lexicon">
-		{{ JSON.stringify(entry) }}
-	</div>
+	<app-card *ngFor="let entry of data.lexicon" [entry]="entry"/>
 </div>
