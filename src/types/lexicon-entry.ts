@@ -6,13 +6,16 @@ export default class LexiconEntry {
 		public readonly firstSeen: Date,
 	) {}
 
-	static fromJSON(json: string): LexiconEntry {
-		const obj = JSON.parse(json);
+	static fromObject(obj: {id: number, word: string, definition: string, first_time_used: string}): LexiconEntry {
 		return new LexiconEntry(
 			obj.id,
 			obj.word,
 			obj.definition,
 			new Date(obj.first_time_used),
 		);
+	}
+
+	static fromArray(arr: {id: number, word: string, definition: string, first_time_used: string}[]): LexiconEntry[] {
+		return arr.map(obj => LexiconEntry.fromObject(obj));
 	}
 }

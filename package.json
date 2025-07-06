@@ -2,7 +2,8 @@
 	"name": "dgm-lexicon",
 	"version": "0.0.0",
 	"imports": {
-		"#types/*": "./src/types/*.js"
+		"#types/*": "./src/types/*.js",
+		"#services/*": "./src/app/services/*.js"
 	},
 	"scripts": {
 		"ng": "ng",
