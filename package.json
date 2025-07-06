@@ -3,7 +3,8 @@
 	"version": "0.0.0",
 	"imports": {
 		"#types/*": "./src/types/*.js",
-		"#services/*": "./src/app/services/*.js"
+		"#services/*": "./src/app/services/*.js",
+		"#pages/*": "./src/app/pages/*/*.js"
 	},
 	"scripts": {
 		"ng": "ng",
