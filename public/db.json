@@ -1,4 +1,12 @@
 {
+	"tags": {
+		"malchance": "#FF0000",
+		"objets": "#00FF00",
+		"combat": "#0000FF",
+		"roleplay": "#FFFF00",
+		"stratégie": "#FF00FF",
+		"mj": "#00FFFF"
+	},
 	"lexicon": [
 		{
 			"id": 0,

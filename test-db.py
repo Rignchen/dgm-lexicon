@@ -1,4 +1,24 @@
 #!/usr/bin/env python3
+
+def regex(pattern: str, string: str) -> bool:
+	return match(pattern, string) is not None
+
+struct = {
+	"tags": (
+		lambda x, _: [] if isinstance(x, dict) and all(isinstance(k, str) and isinstance(v, str) for k, v in x.items()) else ["Tags must be a dictionary with string keys and values"],
+		lambda x, _: [] if len(vs := [v for v in x.values() if not regex(r'^#[0-9A-F]{6}$', v)]) == 0 else [f"Invalid tag format: {vs} must be in the format #RRGGBB"],
+	),
+	"lexicon": [
+		{
+			"id": int,
+			"word": (str, lambda x, _: [] if x else ["Word cannot be empty"]),
+			"definition": (str, lambda x, _: [] if x else ["Definition cannot be empty"]),
+			"first_time_used": (str, lambda x, _: [] if regex(r'^\d{4}-\d{2}-\d{2}$', x) else [f"Invalid date format: {repr(x)} must be YYYY-MM-DD"]),
+			"tag": (str, lambda x, y: [] if x in y["tags"] else [f"Tag '{x}' not found in tags"]),
+		}
+	],
+}
+
 from json import loads
 from re import match
 
@@ -6,23 +26,12 @@ def read_json(file_path: str) -> dict:
 	with open(file_path, 'r') as file:
 		return loads(file.read())
 
-tags = {"malchance", "objets", "combat", "roleplay", "stratégie", "mj", "autre"}
-struct = {
-	"lexicon": [
-		{
-			"id": int,
-			"word": (str, lambda x: [] if x else ["Word cannot be empty"]),
-			"definition": (str, lambda x: [] if x else ["Definition cannot be empty"]),
-			"first_time_used": (str, lambda x: [] if match(r'^\d{4}-\d{2}-\d{2}$', x) is not None else [f"Invalid date format: {repr(x)} must be YYYY-MM-DD"]),
-			"tag": (str, lambda x: [] if x in tags else [f"Invalid tag: {repr(x)} must be one of {tags}"]),
-		}
-	]
-}
 
-def validate_json_structure(data, structure) -> list[str|int]:
+def validate_json_structure(data, structure, json: dict|None = None) -> list[str|int]:
+	json = json if json is not None else data
 	match type(structure).__name__:
 		case 'dict':
-			# check type, length, keys, validate_json_structure(value, structure[key])
+			# check type, length, keys, validate_json_structure(value, structure[key], json)
 			if not isinstance(data, dict):
 				return [f"Expected a dictionary, got {type(data).__name__}"]
 			if len(data) != len(structure):
@@ -30,23 +39,23 @@ def validate_json_structure(data, structure) -> list[str|int]:
 			for key, value in data.items():
 				if key not in structure:
 					return [f"Unexpected key: {key}\nExpected keys: {list(structure.keys())}"]
-				error = validate_json_structure(value, structure[key])
+				error = validate_json_structure(value, structure[key], json)
 				if error:
 					error.insert(0, key)
 					return error
 		case 'list':
-			# check type, validate_json_structure(item, structure[0])
+			# check type, validate_json_structure(item, structure[0], json)
 			if not isinstance(data, list):
 				return [f"Expected a list, got {type(data).__name__}"]
 			for i, item in enumerate(data):
-				error = validate_json_structure(item, structure[0])
+				error = validate_json_structure(item, structure[0], json)
 				if error:
 					error.insert(0, i)
 					return error
 		case 'tuple':
-			# check validate_json_structure(data, structure[i])
+			# check validate_json_structure(data, structure[i], json)
 			for i in structure:
-				error = validate_json_structure(data, i)
+				error = validate_json_structure(data, i, json)
 				if error:
 					return error
 		case 'type':
@@ -54,8 +63,8 @@ def validate_json_structure(data, structure) -> list[str|int]:
 			if not isinstance(data, structure):
 				return [f"Expected type {structure.__name__}, got {type(data).__name__}"]
 		case 'function':
-			# check structure(data)
-			error = structure(data)
+			# check structure(data, json)
+			error = structure(data, json)
 			if error:
 				return error
 		case _:
