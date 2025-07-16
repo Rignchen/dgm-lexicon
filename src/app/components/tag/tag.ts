@@ -1,9 +1,10 @@
 import TagType from '#types/tag';
 import { Component, Input } from '@angular/core';
+import { Bubble } from '#components/bubble';
 
 @Component({
 	selector: 'app-tag',
-	imports: [],
+	imports: [Bubble],
 	templateUrl: './tag.html',
 	styleUrl: './tag.css'
 })

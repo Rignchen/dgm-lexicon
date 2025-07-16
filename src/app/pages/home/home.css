@@ -16,9 +16,13 @@ p {
 	margin-bottom: 2rem;
 }
 
+.input-container {
+	width: calc(100% - 2rem);
+}
 input {
-	border-radius: var(--border-radius);
-	border: var(--border);
+	border: none;
+	background: transparent;
+
 	padding: 0rem 0.5rem;
 	font-size: 1rem;
 	padding: 0.5rem 1rem;
@@ -26,10 +30,7 @@ input {
 }
 
 .found-count {
-	border-radius: var(--border-radius);
-	border: var(--border);
 	padding: 0rem 0.5rem;
-	background-color: white;
 }
 .found-count span {
 	color: red;
@@ -39,4 +40,6 @@ input {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	gap: 1rem;
+	margin-bottom: 1rem;
 }

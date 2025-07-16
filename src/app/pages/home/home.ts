@@ -3,10 +3,11 @@ import { Component, inject } from '@angular/core';
 import { Card } from '#components/card';
 import { Word } from '#pages/word';
 import { Router } from '@angular/router';
+import { Bubble } from '#components/bubble';
 
 @Component({
 	selector: 'app-home',
-	imports: [Card],
+	imports: [Card, Bubble],
 	templateUrl: './home.html',
 	styleUrl: './home.css'
 })

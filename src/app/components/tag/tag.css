@@ -2,10 +2,8 @@ span {
 	display: inline-block;
 	width: 7rem;
 	height: 1.5rem;
+	margin-top: 2px;
 
 	text-transform: capitalize;
 	text-align: center;
-
-	border: var(--border);
-	border-radius: var(--border-radius);
 }

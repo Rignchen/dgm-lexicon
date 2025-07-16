@@ -1,10 +1,14 @@
 <main>
 	<h1>dgm-lexicon</h1>
 	<p>Dictionnaire des expressions et références du stream</p>
-	<input type="text" placeholder="Rechercher une inside joke...">
-	<span class="found-count">
-		<span>{{ data.lexicon.length }}</span> Expressions trouvées
-	</span>
+	<bubble class="input-container">
+		<input type="text" placeholder="Rechercher une inside joke...">
+	</bubble>
+	<bubble>
+		<span class="found-count">
+			<span>{{ data.lexicon.length }}</span> Expressions trouvées
+		</span>
+	</bubble>
 	<div class="cards">
 		@for (entry of data.lexicon; track entry.id) {
 			<app-card [entry]="entry" [onClick]="cardClicked"/>

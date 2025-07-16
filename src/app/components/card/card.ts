@@ -1,10 +1,11 @@
 import LexiconEntry from '#types/lexicon-entry';
 import { Component, Input } from '@angular/core';
 import { Tag } from '#components/tag';
+import { Bubble } from '#components/bubble';
 
 @Component({
 	selector: 'app-card',
-	imports: [Tag],
+	imports: [Tag, Bubble],
 	templateUrl: './card.html',
 	styleUrl: './card.css'
 })
