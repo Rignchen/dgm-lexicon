@@ -35,10 +35,14 @@ p {
 	gap: 0.5rem;
 
 	overflow: scroll;
+	scrollbar-width: none;
 	flex-wrap: nowrap;
 	width: calc(100% - 2 * var(--padding));
 
 	/* place to the bottom of the card */
 	position: absolute;
 	bottom: var(--padding);
+}
+.tags::-webkit-scrollbar {
+	display: none;
 }
