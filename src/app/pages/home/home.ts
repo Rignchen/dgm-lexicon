@@ -24,10 +24,25 @@ export class Home {
 		if (searchTerm === '') {
 			this.filteredData = this.data.lexicon;
 		} else {
-			this.filteredData = this.data.lexicon.filter(entry =>
-				entry.word.toLowerCase().includes(searchTerm) ||
-				entry.definition.toLowerCase().includes(searchTerm)
+			this.filteredData = filterAndSort(
+				this.data.lexicon,
+				entry => entry.word.toLowerCase().includes(searchTerm),
+				entry => entry.definition.toLowerCase().includes(searchTerm),
 			);
 		}
 	}
+}
+
+/**
+ * Filters an array on multiple filters
+ * Then sorts the array, the entries that match the first filter first, then the second, etc.
+ */
+function filterAndSort<T>(data: T[], ...filters: ((item: T) => boolean)[]): T[] {
+	const filteredData = [];
+	for (const filter of filters) {
+		const filtered = data.filter(filter);
+		filteredData.push(...filtered);
+		data = data.filter(item => !filtered.includes(item));
+	}
+	return filteredData;
 }
