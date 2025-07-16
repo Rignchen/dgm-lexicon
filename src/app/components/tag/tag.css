@@ -7,5 +7,5 @@ span {
 	text-align: center;
 
 	border: var(--border);
-	border-radius: 5rem;
+	border-radius: var(--border-radius);
 }
