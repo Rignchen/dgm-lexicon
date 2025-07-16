@@ -1,0 +1,17 @@
+main {
+	text-align: center;
+	gap: 1.2em;
+
+	/* vertical centering */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+}
+
+h1 {
+	font-size: 4em;
+	margin: 0 0 -1rem 0;
+	padding: 0;
+}
