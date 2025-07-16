@@ -9,6 +9,12 @@ import { Bubble } from '#components/bubble';
 	styleUrl: './error-404.css'
 })
 export class Error404 {
+	constructor(private router: Router) {}
+
+	public goHome() {
+		this.router.navigate(['/']);
+	}
+
 	public static redirect(router: Router) {
 		// Navigate to the 404 page without changing the URL
 		router.navigate(['**'], {
