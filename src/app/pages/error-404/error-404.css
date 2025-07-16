@@ -10,8 +10,37 @@ main {
 	height: 100%;
 }
 
+.error {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+
+	width: 27em;
+	height: 9em;
+}
+
+h1, h2, h3, p {
+	margin: 0;
+	padding: 0;
+}
 h1 {
 	font-size: 4em;
-	margin: 0 0 -1rem 0;
-	padding: 0;
+	margin-bottom: -1rem;
+}
+h2 {
+	font-size: 1.9em;
+}
+h3 {
+	font-size: 1.2em;
+	font-weight: 500;
+}
+p {
+	font-size: 0.9em;
+	margin-bottom: 1em;
+	color: var(--gray-text);
+}
+
+.home {
+	padding: 0.5em 1.4em;
+	font-size: 0.9em;
 }
