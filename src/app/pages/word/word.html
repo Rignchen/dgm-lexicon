@@ -12,5 +12,14 @@
 				<pre>{{ entry?.definition }}</pre>
 			</bubble>
 		</li>
+		<li>Première utilisation
+			<bubble>
+				📅 {{ entry?.firstSeen!.toLocaleDateString('fr-FR', {
+					day: 'numeric',
+					month: 'long',
+					year: 'numeric'
+				}) }}
+			</bubble>
+		</li>
 	</ul>
 </bubble>
