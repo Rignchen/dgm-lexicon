@@ -2,6 +2,8 @@
 	<h1>{{ entry.word }}</h1>
 	<p>{{ entry.definition }}</p>
 	<div class="tags">
-		<app-tag [tag]="tag" *ngFor="let tag of entry.tags"/>
+		@for (tag of entry.tags; track tag.name) {
+			<app-tag [tag]="tag"></app-tag>
+		}
 	</div>
 </div>

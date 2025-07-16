@@ -1,3 +1,5 @@
 <div class="flex">
-	<app-card *ngFor="let entry of data.lexicon" [entry]="entry" [onClick]="cardClicked"></app-card>
+	@for (entry of data.lexicon; track entry.id) {
+		<app-card [entry]="entry" [onClick]="cardClicked"/>
+	}
 </div>

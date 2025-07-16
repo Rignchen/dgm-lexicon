@@ -1,5 +1,4 @@
 import { Data } from '#services/data';
-import { NgFor } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { Card } from '#components/card';
 import { Word } from '#pages/word';
@@ -7,7 +6,7 @@ import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-home',
-	imports: [NgFor, Card],
+	imports: [Card],
 	templateUrl: './home.html',
 	styleUrl: './home.css'
 })
