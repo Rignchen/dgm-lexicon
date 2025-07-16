@@ -1,6 +1,37 @@
 .card {
-	border: 1px solid #ccc;
+	border: var(--border);
 	border-radius: 15px;
-	padding: 10px;
-	margin: 5px;
+	background: white;
+
+	--padding: 1.1rem;
+	padding: var(--padding);
+	margin: 10px;
+	width: 23rem;
+	height: 9rem;
+
+	/* set the app-tag to the bottom of the card */
+	position: relative;
+}
+
+h1 {
+	font-size: 1.2rem;
+	margin: 0;
+}
+
+p {
+	overflow: hidden;
+	text-overflow: ellipsis;
+	/* max 2 lines before the ... */
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+
+	font-size: 0.8rem;
+	color: #666666;
+}
+
+app-tag {
+	/* place to the bottom of the card */
+	position: absolute;
+	bottom: var(--padding);
 }
