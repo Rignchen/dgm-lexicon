@@ -1,7 +1,7 @@
 <app-back-button/>
-<body>
+<main>
 	<bubble>
-		<main>
+		<div class="main">
 			<h1>{{ entry?.word }}</h1>
 			<div class="tags">
 				@for (tag of entry?.tags; track tag.name) {
@@ -28,6 +28,6 @@
 					</div>
 				</bubble>
 			</div>
-		</main>
+		</div>
 	</bubble>
-</body>
+</main>
