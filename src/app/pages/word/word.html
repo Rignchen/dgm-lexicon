@@ -6,5 +6,11 @@
 			<app-tag [tag]="tag" [icon]="true"/>
 		}
 	</div>
-	<pre>{{ entry?.definition }}</pre>
+	<ul>
+		<li>Définition
+			<bubble>
+				<pre>{{ entry?.definition }}</pre>
+			</bubble>
+		</li>
+	</ul>
 </bubble>
