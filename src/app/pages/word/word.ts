@@ -5,10 +5,11 @@ import LexiconEntry from '#types/lexicon-entry';
 import { Router } from '@angular/router';
 import { Error404 } from '#pages/error-404';
 import { BackButtonComponent } from '#components/back-button';
+import { Bubble } from '#components/bubble';
 
 @Component({
 	selector: 'app-word',
-	imports: [BackButtonComponent],
+	imports: [BackButtonComponent, Bubble],
 	templateUrl: './word.html',
 	styleUrl: './word.css'
 })
