@@ -29,7 +29,7 @@ p {
 	display: flex;
 	gap: 0.5rem;
 
-	overflow: scroll;
+	overflow-x: scroll;
 	scrollbar-width: none;
 	flex-wrap: nowrap;
 	width: calc(100% - 2 * var(--padding));
