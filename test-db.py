@@ -72,15 +72,18 @@ def validate_json_structure(data, structure, json: dict|None = None) -> list[str
 			return [f"Unsupported structure type: {type(structure).__name__}"]
 	return []
 
-def main():
-	db_path = "public/db.json"
-	db_content = read_json(db_path)
-	error = validate_json_structure(db_content, struct)
+def validate_json_file_structure(file_path: str, structure: dict) -> bool:
+	data = read_json(file_path)
+	error = validate_json_structure(data, structure)
 	if error:
-		print(f"Validation error: {error}")
-		exit(1)
+		print(f"Validation error in file {file_path}: {error}")
 	else:
-		print("JSON structure is valid.")
+		print(f"File {file_path} is valid.")
+	return len(error) != 0
+
+def main():
+	error = validate_json_file_structure("public/db.json", struct)
+	if error: exit(1)
 
 if __name__ == "__main__":
 	main()
