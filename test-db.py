@@ -5,7 +5,8 @@ def regex(pattern: str, string: str) -> bool:
 
 struct = {
 	"tags": (
-		lambda x, _: [] if isinstance(x, dict) and all(isinstance(k, str) and isinstance(v, str) for k, v in x.items()) else ["Tags must be a dictionary with string keys and values"],
+		dict,
+		lambda x, _: [] if all(isinstance(k, str) and isinstance(v, str) for k, v in x.items()) else ["Tags must be a dictionary with string keys and values"],
 		lambda x, _: [] if len(vs := [v for v in x.values() if not regex(r'^#[0-9A-F]{6}$', v)]) == 0 else [f"Invalid tag format: {vs} must be in the format #RRGGBB"],
 	),
 	"lexicon": [
