@@ -7,5 +7,5 @@ import * as jsonData from '#public/db.json';
 })
 export class Data {
 	// read json file "/db.json"
-	public lexicon: LexiconEntry[] = LexiconEntry.fromArray(jsonData.lexicon);
+	public lexicon: LexiconEntry[] = LexiconEntry.fromJsonData(jsonData);
 }
