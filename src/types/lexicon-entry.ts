@@ -14,7 +14,7 @@ export default class LexiconEntry {
 		public readonly word: string,
 		public readonly definition: string,
 		public readonly firstSeen: Date,
-		public readonly tags: Tag[],
+		public readonly tags: Set<Tag>,
 	) {}
 
 	static fromObject(obj: objectType, tags: {[name: string]: Tag}): LexiconEntry {
@@ -23,7 +23,7 @@ export default class LexiconEntry {
 			obj.word,
 			obj.definition,
 			new Date(obj.first_time_used),
-			obj.tags.map(tagName => tags[tagName]),
+			new Set(obj.tags.map(tagName => tags[tagName])),
 		);
 	}
 
