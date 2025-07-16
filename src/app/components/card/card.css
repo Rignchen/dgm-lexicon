@@ -30,7 +30,14 @@ p {
 	color: #666666;
 }
 
-app-tag {
+.tags {
+	display: flex;
+	gap: 0.5rem;
+
+	overflow: scroll;
+	flex-wrap: nowrap;
+	width: calc(100% - 2 * var(--padding));
+
 	/* place to the bottom of the card */
 	position: absolute;
 	bottom: var(--padding);

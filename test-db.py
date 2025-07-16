@@ -15,7 +15,7 @@ struct = {
 			"word": (str, lambda x, _: [] if x else ["Word cannot be empty"]),
 			"definition": (str, lambda x, _: [] if x else ["Definition cannot be empty"]),
 			"first_time_used": (str, lambda x, _: [] if regex(r'^\d{4}-\d{2}-\d{2}$', x) else [f"Invalid date format: {repr(x)} must be YYYY-MM-DD"]),
-			"tag": (str, lambda x, y: [] if x in y["tags"] else [f"Tag '{x}' not found in tags"]),
+			"tags": [(str, lambda x, y: [] if x in y["tags"] else [f"Tag '{x}' not found in tags"])],
 		}
 	],
 }

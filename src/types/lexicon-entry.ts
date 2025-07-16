@@ -5,7 +5,7 @@ type objectType = {
 	word: string,
 	definition: string,
 	first_time_used: string,
-	tag: string,
+	tags: string[],
 };
 
 export default class LexiconEntry {
@@ -14,7 +14,7 @@ export default class LexiconEntry {
 		public readonly word: string,
 		public readonly definition: string,
 		public readonly firstSeen: Date,
-		public readonly tag: Tag,
+		public readonly tags: Tag[],
 	) {}
 
 	static fromObject(obj: objectType, tags: {[name: string]: Tag}): LexiconEntry {
@@ -23,7 +23,7 @@ export default class LexiconEntry {
 			obj.word,
 			obj.definition,
 			new Date(obj.first_time_used),
-			tags[obj.tag]
+			obj.tags.map(tagName => tags[tagName]),
 		);
 	}
 

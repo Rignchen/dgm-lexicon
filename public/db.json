@@ -13,42 +13,49 @@
 			"word": "Dé de Gaëlle",
 			"definition": "Dé maudit qui fait systématiquement échouer les jets de dés.",
 			"first_time_used": "2023-05-10",
-			"tag": "malchance"
+			"tags": ["malchance"]
 		},
 		{
 			"id": 1,
 			"word": "Épée Maudite",
 			"definition": "Arme légendaire avec des effets imprévisibles.",
 			"first_time_used": "2023-05-10",
-			"tag": "objets"
+			"tags": ["objets"]
 		},
 		{
 			"id": 2,
 			"word": "Cri de Guerre",
 			"definition": "Expression utilisée avant chaque combat pour galvaniser les troupes.",
 			"first_time_used": "2023-05-10",
-			"tag": "combat"
+			"tags": ["combat"]
 		},
 		{
 			"id": 3,
 			"word": "Roleplay Intense",
 			"definition": "Moment d'immersion totale dans le personnage, souvent accompagné de décisions risquées.",
 			"first_time_used": "2023-05-10",
-			"tag": "roleplay"
+			"tags": ["roleplay"]
 		},
 		{
 			"id": 4,
 			"word": "Plan Foireux",
 			"definition": "Stratégie qui ne fonctionne jamais comme prévu, souvent utilisée pour ajouter du suspense.",
 			"first_time_used": "2023-05-10",
-			"tag": "stratégie"
+			"tags": ["stratégie"]
 		},
 		{
 			"id": 5,
 			"word": "Rage du MJ",
 			"definition": "Moment où le maître de jeu perd patience face aux actions des joueurs, souvent suivi de conséquences dramatiques.",
 			"first_time_used": "2023-05-10",
-			"tag": "mj"
+			"tags": ["mj"]
+		},
+		{
+			"id": 6,
+			"word": "Potato",
+			"definition": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+			"first_time_used": "2023-05-10",
+			"tags": ["malchance", "objets", "combat", "roleplay", "stratégie", "mj"]
 		}
 	]
 }
