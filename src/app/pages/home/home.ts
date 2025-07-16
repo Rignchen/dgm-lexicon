@@ -14,6 +14,20 @@ import { Bubble } from '#components/bubble';
 export class Home {
 	private router = inject(Router);
 
-	public data = inject(Data);
+	private data = inject(Data);
+	public filteredData = this.data.lexicon;
 	public cardClicked = (id: number) => Word.redirect(this.router, id);
+
+	public search = (event: Event) => {
+		const input = event.target as HTMLInputElement;
+		const searchTerm = input.value.toLowerCase();
+		if (searchTerm === '') {
+			this.filteredData = this.data.lexicon;
+		} else {
+			this.filteredData = this.data.lexicon.filter(entry =>
+				entry.word.toLowerCase().includes(searchTerm) ||
+				entry.definition.toLowerCase().includes(searchTerm)
+			);
+		}
+	}
 }

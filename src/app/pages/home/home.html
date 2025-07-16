@@ -2,15 +2,15 @@
 	<h1>dgm-lexicon</h1>
 	<p>Dictionnaire des expressions et références du stream</p>
 	<bubble class="input-container">
-		<input type="text" placeholder="Rechercher une inside joke...">
+		<input type="text" placeholder="Rechercher une inside joke..." (input)="search($event)" />
 	</bubble>
 	<bubble>
 		<span class="found-count">
-			<span>{{ data.lexicon.length }}</span> Expressions trouvées
+			<span>{{ filteredData.length }}</span> Expressions trouvées
 		</span>
 	</bubble>
 	<div class="cards">
-		@for (entry of data.lexicon; track entry.id) {
+		@for (entry of filteredData; track entry.id) {
 			<app-card [entry]="entry" [onClick]="cardClicked"/>
 		}
 	</div>
