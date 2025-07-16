@@ -1,5 +1,10 @@
 <app-back-button/>
 <bubble>
 	<h1>{{ entry?.word }}</h1>
+	<div class="tags">
+		@for (tag of entry?.tags; track tag.name) {
+			<app-tag [tag]="tag"/>
+		}
+	</div>
 	<pre>{{ entry?.definition }}</pre>
 </bubble>
