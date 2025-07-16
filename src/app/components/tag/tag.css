@@ -1,0 +1,11 @@
+span {
+	display: inline-block;
+	width: 6rem;
+	height: 1.5rem;
+
+	text-transform: capitalize;
+	text-align: center;
+
+	border: 1px solid black;
+	border-radius: 5rem;
+}

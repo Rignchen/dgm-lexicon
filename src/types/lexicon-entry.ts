@@ -14,7 +14,7 @@ export default class LexiconEntry {
 		public readonly word: string,
 		public readonly definition: string,
 		public readonly firstSeen: Date,
-		public readonly tags: Tag,
+		public readonly tag: Tag,
 	) {}
 
 	static fromObject(obj: objectType, tags: {[name: string]: Tag}): LexiconEntry {
