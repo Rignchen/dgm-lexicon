@@ -8,12 +8,12 @@
 	</div>
 	<ul>
 		<li>Définition
-			<bubble>
+			<bubble background="#F7F7F7">
 				<pre>{{ entry?.definition }}</pre>
 			</bubble>
 		</li>
 		<li>Première utilisation
-			<bubble>
+			<bubble background="var(--gradient-reverse)">
 				📅 {{ entry?.firstSeen!.toLocaleDateString('fr-FR', {
 					day: 'numeric',
 					month: 'long',

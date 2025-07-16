@@ -1,6 +1,10 @@
 html, body { height: 99%; }
 :root {
-	--gradient: linear-gradient(90deg, #FAF0F5 0%, #FCF7DE 100%);
+	---gradient-start: #FAF0F5;
+	---gradient-end: #FCF7DE;
+	--gradient: linear-gradient(90deg, var(---gradient-start), var(---gradient-end));
+	--gradient-reverse: linear-gradient(90deg, var(---gradient-end), var(---gradient-start));
+
 	--gray-text: #666666;
 }
 
