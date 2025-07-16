@@ -1,9 +1,19 @@
-span {
+.tag-large {
 	display: inline-block;
-	width: 7rem;
+	text-wrap: nowrap;
 	height: 1.5rem;
 	margin-top: 2px;
+}
 
+.tag-name {
+	display: inline-block;
 	text-transform: capitalize;
 	text-align: center;
+}
+
+svg {
+	width: 1.5rem;
+	height: 1.5rem;
+	vertical-align: middle;
+	padding-left: 0.35rem;
 }

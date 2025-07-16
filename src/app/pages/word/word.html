@@ -3,7 +3,7 @@
 	<h1>{{ entry?.word }}</h1>
 	<div class="tags">
 		@for (tag of entry?.tags; track tag.name) {
-			<app-tag [tag]="tag"/>
+			<app-tag [tag]="tag" [icon]="true"/>
 		}
 	</div>
 	<pre>{{ entry?.definition }}</pre>

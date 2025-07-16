@@ -10,4 +10,5 @@ import { Bubble } from '#components/bubble';
 })
 export class Tag {
 	@Input({ required: true }) tag!: TagType;
+	@Input() icon: boolean = false;
 }
