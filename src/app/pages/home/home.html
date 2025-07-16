@@ -1,5 +1,13 @@
-<div class="flex">
-	@for (entry of data.lexicon; track entry.id) {
-		<app-card [entry]="entry" [onClick]="cardClicked"/>
-	}
-</div>
+<main>
+	<h1>dgm-lexicon</h1>
+	<p>Dictionnaire des expressions et références du stream</p>
+	<input type="text" placeholder="Rechercher une inside joke...">
+	<span class="found-count">
+		<span>{{ data.lexicon.length }}</span> Expressions trouvées
+	</span>
+	<div class="cards">
+		@for (entry of data.lexicon; track entry.id) {
+			<app-card [entry]="entry" [onClick]="cardClicked"/>
+		}
+	</div>
+</main>

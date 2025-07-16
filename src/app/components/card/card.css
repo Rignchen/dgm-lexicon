@@ -27,7 +27,7 @@ p {
 	-webkit-box-orient: vertical;
 
 	font-size: 0.8rem;
-	color: #666666;
+	color: var(--gray-text);
 }
 
 .tags {

@@ -1,6 +1,8 @@
 html, body { height: 100%; }
 :root {
 	--gradient: linear-gradient(90deg, #FAF0F5 0%, #FCF7DE 100%);
+	--gray-text: #666666;
+
 	--border: 2px solid black;
 	--border-radius: 20px;
 }
