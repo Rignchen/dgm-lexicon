@@ -4,10 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import LexiconEntry from '#types/lexicon-entry';
 import { Router } from '@angular/router';
 import { Error404 } from '#pages/error-404';
+import { BackButtonComponent } from '#components/back-button';
 
 @Component({
 	selector: 'app-word',
-	imports: [],
+	imports: [BackButtonComponent],
 	templateUrl: './word.html',
 	styleUrl: './word.css'
 })
