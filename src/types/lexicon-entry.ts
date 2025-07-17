@@ -28,7 +28,9 @@ export default class LexiconEntry {
 	}
 
 	static fromArray(arr: objectType[], tags: {[name: string]: Tag}): LexiconEntry[] {
-		return arr.map(obj => LexiconEntry.fromObject(obj, tags));
+		return arr
+			.map(obj => LexiconEntry.fromObject(obj, tags))
+			.sort((a, b) => b.firstSeen.getTime() - a.firstSeen.getTime());
 	}
 
 	static fromJsonData(data: {lexicon: objectType[], tags: {[name: string]: string}}): LexiconEntry[] {
