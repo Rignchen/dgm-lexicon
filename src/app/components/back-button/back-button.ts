@@ -8,6 +8,6 @@ import { Bubble } from '../bubble/bubble';
 	templateUrl: './back-button.html',
 	styleUrl: './back-button.css'
 })
-export class BackButtonComponent {
+export class BackButton {
 	constructor(public location: Location) {}
 }
