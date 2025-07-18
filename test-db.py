@@ -8,15 +8,15 @@ structure = (
 	lambda x, _: [] if len(x) == 2 else ["CSV must contain exactly two category"],
 	lambda x, _: validate_json_structure(x[0],[
 		{
-			"tag": (str, lambda x, _: [] if x else ["Tag cannot be empty"]),
+			"tag": (str, len),
 			"color": (str, lambda x, _: [] if regex(r'^#[0-9A-F]{6}$', x) else [f"Invalid color format: {repr(x)} must be in the format #RRGGBB"]),
 		}
 	], x),
 	lambda x, _: validate_json_structure(x[1], [
 		{
 			"id": (str, lambda x, _: [] if regex(r'^\d+$', x) else [f"ID must be a positive integer, got {repr(x)}"]),
-			"word": (str, lambda x, _: [] if x else ["Word cannot be empty"]),
-			"definition": (str, lambda x, _: [] if x else ["Definition cannot be empty"]),
+			"word": (str, len),
+			"definition": (str, len),
 			"first_time_used": (str, lambda x, _: [] if regex(r'^\d{4}-\d{2}-\d{2}$', x) else [f"Invalid date format: {repr(x)} must be YYYY-MM-DD"]),
 			"tags": (str, lambda x, y: [] if all(i in map(lambda t: t['tag'], y[0]) for i in x.split(",")) else [f"Tag '{x}' not found in tags"]),
 		}
@@ -77,6 +77,9 @@ def validate_json_structure(data, structure, json: dict|None = None) -> list[str
 			match structure.__name__:
 				case 'print':
 					print(data)
+				case 'len':
+					if len(data) == 0:
+						return ["Data cannot be empty"]
 				case _:
 					return [f"Unsupported builtin: {structure.__name__}"]
 		case _:
