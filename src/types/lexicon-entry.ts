@@ -70,7 +70,14 @@ export default class LexiconEntry {
 			return parts;
 		});
 
-		console.log(JSON.stringify(separatedLines, null, '\t'));
+		// Split the lines into tags and lexicon entries
+		const indexOfEmptyLine = separatedLines.findIndex(line => line.length === 0);
+		const tagArrays = separatedLines.slice(1, indexOfEmptyLine);
+		const lexiconEntriesArrays = separatedLines.slice(indexOfEmptyLine + 2)
+			.filter(line => line.length > 0); // there might be an empty line at the end
+
+		console.log('tagArrays: ', JSON.stringify(tagArrays, null, '\t'));
+		console.log('lexiconArrays: ', JSON.stringify(lexiconArrays, null, '\t'));
 		return [];
 	}
 }
