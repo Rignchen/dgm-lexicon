@@ -20,13 +20,40 @@ struct = {
 	),
 }
 
+csv_structure = (
+	list,
+	lambda x, _: [] if len(x) == 2 else ["CSV must contain exactly two category"],
+	lambda x, _: validate_json_structure(x[0],[
+		{
+			"tag": (str, lambda x, _: [] if x else ["Tag cannot be empty"]),
+			"color": (str, lambda x, _: [] if regex(r'^#[0-9A-F]{6}$', x) else [f"Invalid color format: {repr(x)} must be in the format #RRGGBB"]),
+		}
+	], x),
+	lambda x, _: validate_json_structure(x[1], [
+		{
+			"id": (str, lambda x, _: [] if regex(r'^\d+$', x) else [f"ID must be a positive integer, got {repr(x)}"]),
+			"word": (str, lambda x, _: [] if x else ["Word cannot be empty"]),
+			"definition": (str, lambda x, _: [] if x else ["Definition cannot be empty"]),
+			"first_time_used": (str, lambda x, _: [] if regex(r'^\d{4}-\d{2}-\d{2}$', x) else [f"Invalid date format: {repr(x)} must be YYYY-MM-DD"]),
+			"tags": (str, lambda x, y: [] if all(i in map(lambda t: t['tag'], y[0]) for i in x.split(",")) else [f"Tag '{x}' not found in tags"]),
+		}
+	], x)
+)
+
 from json import loads
-from re import match
+from csv import DictReader as csv2dict
+from re import match, sub
 
 def read_json(file_path: str) -> dict:
 	with open(file_path, 'r') as file:
 		return loads(file.read())
 
+def read_csv(file_path: str) -> list[list[dict]]:
+	with open(file_path, 'r') as file:
+		# remove leading/trailing whitespace
+		content = '\n'.join(sub(r'^[\s,]+|[\s,]+$', '', line) for line in file.readlines())
+		csvs = content.split('\n\n')
+		return [list(csv2dict(csv.splitlines())) for csv in csvs if csv.strip()]
 
 def validate_json_structure(data, structure, json: dict|None = None) -> list[str|int]:
 	json = json if json is not None else data
@@ -68,6 +95,12 @@ def validate_json_structure(data, structure, json: dict|None = None) -> list[str
 			error = structure(data, json)
 			if error:
 				return error
+		case 'builtin_function_or_method':
+			match structure.__name__:
+				case 'print':
+					print(data)
+				case _:
+					return [f"Unsupported builtin: {structure.__name__}"]
 		case _:
 			return [f"Unsupported structure type: {type(structure).__name__}"]
 	return []
@@ -81,8 +114,18 @@ def validate_json_file_structure(file_path: str, structure: dict) -> bool:
 		print(f"File {file_path} is valid.")
 	return len(error) != 0
 
+def validate_csv_file_structure(file_path: str, structure: tuple) -> bool:
+	data = read_csv(file_path)
+	error = validate_json_structure(data, structure)
+	if error:
+		print(f"Validation error in file {file_path}: {error}")
+	else:
+		print(f"File {file_path} is valid.")
+	return len(error) != 0
+
 def main():
 	error = validate_json_file_structure("public/db.json", struct)
+	error = validate_csv_file_structure("public/db.csv", csv_structure) or error
 	if error: exit(1)
 
 if __name__ == "__main__":
