@@ -58,7 +58,19 @@ export default class LexiconEntry {
 		const trailingCommaRegex = /^[\s,]*|[\s,]*$/g;
 		const lines = data.split('\n').map(line => line.replace(trailingCommaRegex, ''));
 
-		console.log(JSON.stringify(lines, null, '\t'));
+		// Separate on commas, taking care of quoted fields
+		const csvLineRegex = /(?:^|,)(?:"([^"]*(?:""[^"]*)*)"|([^",]*))/g;
+		const separatedLines: string[][] = lines.map(line => {
+			if (line === '') return [];
+			const parts = [];
+			let match;
+			while ((match = csvLineRegex.exec(line)) !== null) {
+				parts.push(match[1] !== undefined ? match[1].replace(/""/g, '"') : match[2]);
+			}
+			return parts;
+		});
+
+		console.log(JSON.stringify(separatedLines, null, '\t'));
 		return [];
 	}
 }
