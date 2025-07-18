@@ -2,7 +2,6 @@ name: Test json db file
 on:
   push:
     paths:
-      - 'public/db.json'
       - 'public/db.csv'
       - 'test-db.py'
   workflow_dispatch:
