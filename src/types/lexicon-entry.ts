@@ -46,7 +46,7 @@ export default class LexiconEntry {
 		 */
 
 		// Strip trailing commas from each line
-		const trailingCommaRegex = /^[\s,]*|[\s,]*$/g;
+		const trailingCommaRegex = /[\s,]*$/g;
 		const lines = data.split('\n').map(line => line.replace(trailingCommaRegex, ''));
 
 		// Separate on commas, taking care of quoted fields
