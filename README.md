@@ -1,59 +1,77 @@
-# DgmLexicon
+# dgm-lexicon
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.0.5.
+DevenirGameMaster is a french tabletop rpg content creator.
+With his community he has multiple inside jokes, memes and references that are unknown by people outside of the community.
+This situation leads to him having to explain these jokes to people he meets which can get a bit annoying.
 
-## Development server
+dgm-lexicon is a website created so that people can look up these jokes and references and understand them without having to ask.
 
-To start a local development server, run:
-
+# Installation
+## Manual Installation
+1. Dependencies
+To install dgm-lexicon, you need to have [Node.js](https://nodejs.org/) installed on your computer.\
+I also recommend using [pnpm](https://pnpm.io/) as a package manager there's no lockfile for other package managers in this project.
 ```bash
-ng serve
+npm install -g pnpm
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+2. Get the files
+Once you have installed the dependencies, you can [download the files](https://github.com/Rignchen/dgm-lexicon/archive/refs/heads/main.zip) from the repository.\
+Unzip the files in a folder of your choice.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
+3. Install the dependencies
+Once the files downloaded and unzipped, open a terminal in the folder and run the following command:
 ```bash
-ng generate component component-name
+pnpm install --frozen-lockfile
+```
+pnpm will install all the dependencies needed to run the project.
+
+4. Run the project
+To run the project, you can use the following command:
+```bash
+pnpm run start
+```
+This will start the development server and you'll be able to access the website at [localhost:4200](http://localhost:4200).
+
+5. Build the project
+If you want to host the project on a server, you can build it using the following command:
+```bash
+pnpm run build
+```
+This will create a `dist` folder with the built files that you can host on your server.
+
+These files hold the entiere project under `dist/dgm-lexicon/browser`,
+you can move this folder somewhere else and delete everything else if you want to.
+These can be hosted on any static file server
+```bash
+npx http-server
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Docker Installation
+1. Dependencies
+To install dgm-lexicon, you need to have [Docker](https://www.docker.com/) installed on your computer.
 
+2. Get the files
+Once you have installed the dependencies, you can [download the files](https://github.com/Rignchen/dgm-lexicon/archive/refs/heads/main.zip) from the repository.\
+Unzip the files in a folder of your choice.
+
+3. Build the Docker image
+Once the files downloaded and unzipped, open a terminal in the folder and run the following command:
 ```bash
-ng generate --help
+docker build -t dgm-lexicon .
+```
+This will build the Docker image with the name `dgm-lexicon`. Once that's done, you can remove all the files if you want to.
+
+4. Run the Docker container
+To run the Docker container, you can use the following command:
+```bash
+docker run -d -p 80:8080 dgm-lexicon
+```
+This will start the production server and which will be accessible at [localhost](http://localhost).
+
+5. Stop the Docker container
+When you want to stop the website, you can use the following command:
+```bash
+docker stop $(docker ps -q --filter ancestor=dgm-lexicon)
 ```
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
