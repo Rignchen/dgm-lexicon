@@ -38,7 +38,26 @@ export default class LexiconEntry {
 		return LexiconEntry.fromArray(data.lexicon, tags);
 	}
 
-	static fromCsvData(data: string): LexiconEntry[] {
+	static fromCsvData(tagArrays: string[][], lexiconEntriesArrays: string[][]): LexiconEntry[] {
+		// Create tags from the tag lines
+		const tags = Tag.fromObject(Object.fromEntries(tagArrays));
+		const lexiconEntries: LexiconEntry[] = lexiconEntriesArrays.map((line) => {
+			const [id, word, definition, first_time_used, tagsString] = line;
+			const tagsArray = tagsString.split(',');
+			const tagSet = new Set(tagsArray.map(tagName => tags[tagName]));
+			return new LexiconEntry(
+				parseInt(id, 10),
+				word,
+				definition,
+				new Date(first_time_used),
+				tagSet,
+			);
+		})
+
+		return lexiconEntries.sort((a, b) => b.firstSeen.getTime() - a.firstSeen.getTime());
+	}
+
+	static parseFromCsv(data: string): LexiconEntry[] {
 		/* Assuming the CSV data is structured as follows:
 		 * ```csv
 		 * tag,color
@@ -76,8 +95,6 @@ export default class LexiconEntry {
 		const lexiconEntriesArrays = separatedLines.slice(indexOfEmptyLine + 2)
 			.filter(line => line.length > 0); // there might be an empty line at the end
 
-		console.log('tagArrays: ', JSON.stringify(tagArrays, null, '\t'));
-		console.log('lexiconArrays: ', JSON.stringify(lexiconArrays, null, '\t'));
-		return [];
+		return LexiconEntry.fromCsvData(tagArrays, lexiconEntriesArrays);
 	}
 }

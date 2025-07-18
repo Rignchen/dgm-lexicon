@@ -8,5 +8,6 @@ import csvData from '#public/db.csv';
 })
 export class Data {
 	public lexicon: LexiconEntry[] = LexiconEntry.fromJsonData(jsonData);
-	public lexiconFromCsv: LexiconEntry[] = LexiconEntry.fromCsvData(csvData);
+	public lexiconFromCsv: LexiconEntry[] = LexiconEntry.parseFromCsv(csvData);
 }
+console.log(new Data().lexiconFromCsv);
