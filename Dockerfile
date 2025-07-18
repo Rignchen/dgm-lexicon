@@ -20,6 +20,6 @@ RUN pnpm build
 # Production stage
 FROM base as prod
 # Copy built application from builder stage
-COPY --from=builder /app/dist/dgm-lexicon .
-EXPOSE 4000
-ENTRYPOINT ["node", "server/server.mjs"]
+COPY --from=builder /app/dist/dgm-lexicon/browser .
+EXPOSE 8080
+ENTRYPOINT ["npx", "http-server"]

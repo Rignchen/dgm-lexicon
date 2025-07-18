@@ -21,4 +21,4 @@ jobs:
         build_configuration: production
         base_href: /dgm-lexicon/
         deploy_branch: gh-pages
-        angular_dist_build_folder: dist/dgm-lexicon
+        angular_dist_build_folder: dist/dgm-lexicon/browser
