@@ -12,6 +12,10 @@ h1 {
 .listed::before {
 	content: "●";
 	margin-right: 0.5rem;
+	font-size: 1.3rem;
+}
+.listed {
+	font-size: 1.3rem;
 }
 
 pre {
@@ -29,10 +33,11 @@ main {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	padding: 1rem 0 2rem 0;
 }
 .main {
 	padding: 2rem;
-	min-height: calc(100vh - 8rem);
+	min-height: calc(100vh - 11rem);
 	width: 60vw;
 	gap: 1.5rem;
 	display: flex;
