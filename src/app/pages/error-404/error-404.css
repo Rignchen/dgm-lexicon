@@ -16,7 +16,8 @@ main {
 	justify-content: space-around;
 
 	width: 27em;
-	height: 9em;
+	max-width: calc(100vw - 3em);
+	min-height: 9em;
 }
 
 h1, h2, h3, p {
