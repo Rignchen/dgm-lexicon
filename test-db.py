@@ -97,6 +97,7 @@ def validate_csv_file_structure(file_path: str, structure: tuple) -> bool:
 
 def main():
 	error = validate_csv_file_structure("public/db.csv", structure)
+	error = validate_csv_file_structure("public/db-prod.csv", structure) or error
 	if error: exit(1)
 
 if __name__ == "__main__":

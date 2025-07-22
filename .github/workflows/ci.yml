@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'public/db.csv'
+      - 'public/db-prod.csv'
       - 'test-db.py'
   workflow_dispatch:
 jobs:

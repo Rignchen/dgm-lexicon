@@ -14,6 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Change test-db to production-db
+      run: |
+        rm public/db.csv
+        mv public/db-prod.csv public/db.csv
     - name: All things angular
       uses: AhsanAyaz/angular-deploy-gh-pages-actions@2272ef32f364bc80d8680ee03d8e58f126156c31
       with:

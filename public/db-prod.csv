@@ -1,0 +1,9 @@
+tag,color,,,
+help,#33FF57,,,
+animal,#FF5733,,,
+,,,,
+id,word,definition,first_time_used,tags
+0,Carte X,"Action utilisée en jeu de rôle pour signaler au MJ que l'on est inconfortable avec ce que le MJ vient de dire et que l'on souhaite qu'iel change ce qu'iel vient de dire",2023-05-10,help
+1,Lueur d'espoir,"Action utilisée en jeu de rôle pour signaler au MJ que l'on est dans une situation compliquée et que l'on aimerait que le MJ change la session prévue pour une session légère, joyeuse et sans enjeu",2023-05-10,help
+2,Dégage,"[Perroquet Dracula](https://fr.wikipedia.org/wiki/Psittrichas_de_Pesquet) obtenu lors d’une session de jeu de rôle après utilisation d'une [_lueur d'espoir_](words/1)
+Les perroquets draculas sont frutivore et Dégage adore les figues, c’est pourquoi il a un sac remplis de figues",2023-05-10,animal
