@@ -53,7 +53,7 @@ export default class LexiconEntry {
 		 * ```
 		 * There might be trailing commas that should be removed.
 		 * The first part of the CSV is for tags, then there's a blank line, then the lexicon entries. tags in the lexicon entries are separated by semicolons to have all of them in the same field.
-		 * Some fields might have commas in them, these fields are quoted. In these quoted fields there might be quotes, these are escaped with a backslash.
+		 * Some fields might have commas in them, these fields are quoted. In these quoted fields there might be quotes, commas and new lines, quotes are escaped with another quote.
 		 */
 
 		// Split between tags and lexicon entries
