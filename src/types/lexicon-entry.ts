@@ -56,28 +56,11 @@ export default class LexiconEntry {
 		 * Some fields might have commas in them, these fields are quoted. In these quoted fields there might be quotes, these are escaped with a backslash.
 		 */
 
-		// Strip trailing commas from each line
-		const trailingCommaRegex = /[\s,]*$/g;
-		const lines = data.split('\n').map(line => line.replace(trailingCommaRegex, ''));
+		// Split between tags and lexicon entries
+		const emptyLineRegex = /\n?^(?:\s|,)*$\n?/m;
+		const tagsAndEntriesCsv = data.split(emptyLineRegex).map(line => line.trim()).filter(line => line.length > 0);
 
-		// Separate on commas, taking care of quoted fields
-		const csvLineRegex = /(?:^|,)(?:"([^"]*(?:""[^"]*)*)"|([^",]*))/g;
-		const separatedLines: string[][] = lines.map(line => {
-			if (line === '') return [];
-			const parts = [];
-			let match;
-			while ((match = csvLineRegex.exec(line)) !== null) {
-				parts.push(match[1] !== undefined ? match[1].replace(/""/g, '"') : match[2]);
-			}
-			return parts;
-		});
-
-		// Split the lines into tags and lexicon entries
-		const indexOfEmptyLine = separatedLines.findIndex(line => line.length === 0);
-		const tagArrays = separatedLines.slice(1, indexOfEmptyLine);
-		const lexiconEntriesArrays = separatedLines.slice(indexOfEmptyLine + 2)
-			.filter(line => line.length > 0); // there might be an empty line at the end
-
-		return LexiconEntry.fromCsvData(tagArrays, lexiconEntriesArrays);
+		console.log(tagsAndEntriesCsv);
+		return [];
 	}
 }
