@@ -20,7 +20,7 @@ export default class LexiconEntry {
 		);
 	}
 
-	static fromCsvData(tagArrays: string[][], lexiconEntriesArrays: string[][]): LexiconEntry[] {
+	static fromCsvData(tagArrays: [string,string][], lexiconEntriesArrays: string[][]): LexiconEntry[] {
 		// Create tags from the tag lines
 		const tags = Tag.fromObject(Object.fromEntries(tagArrays));
 		const lexiconEntries: LexiconEntry[] = lexiconEntriesArrays.map((line) => {
@@ -74,10 +74,16 @@ export default class LexiconEntry {
 
 		// Split the lines into tags and lexicon entries
 		const indexOfEmptyLine = separatedLines.findIndex(line => line.length === 0);
-		const tagArrays = separatedLines.slice(1, indexOfEmptyLine);
+		const tagArray = separatedLines.slice(1, indexOfEmptyLine);
 		const lexiconEntriesArrays = separatedLines.slice(indexOfEmptyLine + 2)
 			.filter(line => line.length > 0); // there might be an empty line at the end
 
-		return LexiconEntry.fromCsvData(tagArrays, lexiconEntriesArrays);
+		// Get the expected structure
+		const tagArrays: [string,string][] = tagArray.map(line => [line[0], line[1]]);
+
+		return LexiconEntry.fromCsvData(
+			tagArrays,
+			lexiconEntriesArrays,
+		);
 	}
 }
