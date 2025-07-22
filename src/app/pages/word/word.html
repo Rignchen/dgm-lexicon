@@ -1,33 +1,35 @@
-<app-back-button/>
-<main>
-	<bubble>
-		<div class="main">
-			<h1>{{ entry?.word }}</h1>
-			<div class="tags">
-				@for (tag of entry?.tags; track tag.name) {
-					<app-tag [tag]="tag" [icon]="true"/>
-				}
+@if (entry) {
+	<app-back-button/>
+	<main>
+		<bubble>
+			<div class="main">
+				<h1>{{ entry.word }}</h1>
+				<div class="tags">
+					@for (tag of entry.tags; track tag.name) {
+						<app-tag [tag]="tag" [icon]="true"/>
+					}
+				</div>
+				<div>
+					<span class="listed">Définition</span>
+					<bubble background="#F7F7F7">
+						<div class="bubble">
+							<pre>{{ entry.definition }}</pre>
+						</div>
+					</bubble>
+				</div>
+				<div>
+					<span class="listed">Première utilisation</span>
+					<bubble background="var(--gradient-reverse)">
+						<div class="bubble">
+							📅 {{ entry.firstSeen!.toLocaleDateString('fr-FR', {
+								day: 'numeric',
+								month: 'long',
+								year: 'numeric'
+							}) }}
+						</div>
+					</bubble>
+				</div>
 			</div>
-			<div>
-				<span class="listed">Définition</span>
-				<bubble background="#F7F7F7">
-					<div class="bubble">
-						<pre>{{ entry?.definition }}</pre>
-					</div>
-				</bubble>
-			</div>
-			<div>
-				<span class="listed">Première utilisation</span>
-				<bubble background="var(--gradient-reverse)">
-					<div class="bubble">
-						📅 {{ entry?.firstSeen!.toLocaleDateString('fr-FR', {
-							day: 'numeric',
-							month: 'long',
-							year: 'numeric'
-						}) }}
-					</div>
-				</bubble>
-			</div>
-		</div>
-	</bubble>
-</main>
+		</bubble>
+	</main>
+}
