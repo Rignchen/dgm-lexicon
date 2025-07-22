@@ -53,33 +53,46 @@ export default class LexiconEntry {
 		 * ```
 		 * There might be trailing commas that should be removed.
 		 * The first part of the CSV is for tags, then there's a blank line, then the lexicon entries. tags in the lexicon entries are separated by semicolons to have all of them in the same field.
-		 * Some fields might have commas in them, these fields are quoted. In these quoted fields there might be quotes, these are escaped with a backslash.
+		 * Some fields might have commas in them, these fields are quoted. In these quoted fields there might be quotes, commas and new lines, quotes are escaped with another quote.
 		 */
 
-		// Strip trailing commas from each line
-		const trailingCommaRegex = /[\s,]*$/g;
-		const lines = data.split('\n').map(line => line.replace(trailingCommaRegex, ''));
+		// Split between tags and lexicon entries
+		const emptyLineRegex = /\n?^(?:\s|,)*$\n?/m;
+		const tagsAndEntriesCsv = data.split(emptyLineRegex).map(line => line.trim()).filter(line => line.length > 0);
 
-		// Separate on commas, taking care of quoted fields
-		const csvLineRegex = /(?:^|,)(?:"([^"]*(?:""[^"]*)*)"|([^",]*))/g;
-		const separatedLines: string[][] = lines.map(line => {
-			if (line === '') return [];
-			const parts = [];
+		// Split lines of the csv, taking care of trailing commas
+		const tagAndEntriesLines: string[][] = [];
+		const csvLineRegex = /(^(?:"([^"]*(?:""[^"]*)*)"|([^",\n]*))(,(?:"([^"]*(?:""[^"]*)*)"|([^",\n]*)))*$)/gm;
+		for (const csv of tagsAndEntriesCsv) {
+			const elements: string[] = [];
 			let match;
-			while ((match = csvLineRegex.exec(line)) !== null) {
-				parts.push(match[1] !== undefined ? match[1].replace(/""/g, '"') : match[2]);
+			while ((match = csvLineRegex.exec(csv)) !== null) {
+				elements.push(match[1] !== undefined ? match[1] : match[2]);
 			}
-			return parts;
-		});
+			tagAndEntriesLines.push(elements);
+		}
 
-		// Split the lines into tags and lexicon entries
-		const indexOfEmptyLine = separatedLines.findIndex(line => line.length === 0);
-		const tagArray = separatedLines.slice(1, indexOfEmptyLine);
-		const lexiconEntriesArrays = separatedLines.slice(indexOfEmptyLine + 2)
-			.filter(line => line.length > 0); // there might be an empty line at the end
+		// Split entries on commas, taking care of quoted fields
+		const tagsAndEntriesArrays: string[][][] = [];
+		const csvEntriesRegex = /(?:^|,)(?:"([^"]*(?:""[^"]*)*)"|([^",\n]*))/gm;
+		for (const part of tagAndEntriesLines) {
+			// Remove title line
+			part.shift();
+			const lineElements = [];
+			for (const line of part) {
+				const elements: string[] = [];
+				let match;
+				while ((match = csvEntriesRegex.exec(line)) !== null) {
+					elements.push(match[1] !== undefined ? match[1].replace(/""/g, '"') : match[2]);
+				}
+				lineElements.push(elements);
+			}
+			tagsAndEntriesArrays.push(lineElements);
+		}
 
 		// Get the expected structure
-		const tagArrays: [string,string][] = tagArray.map(line => [line[0], line[1]]);
+		const tagArrays: [string,string][] = tagsAndEntriesArrays[0].map(line => [line[0], line[1]]);
+		const lexiconEntriesArrays = tagsAndEntriesArrays[1];
 
 		return LexiconEntry.fromCsvData(
 			tagArrays,
