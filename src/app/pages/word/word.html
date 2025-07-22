@@ -12,9 +12,7 @@
 				<div>
 					<span class="listed">Définition</span>
 					<bubble background="#F7F7F7">
-						<div class="bubble">
-							<pre>{{ entry.definition }}</pre>
-						</div>
+						<div class="bubble" [innerHTML]="entry.definition.toHtml()"></div>
 					</bubble>
 				</div>
 				<div>

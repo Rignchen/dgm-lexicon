@@ -1,10 +1,11 @@
 import Tag from '#types/tag';
+import Markdown from '#types/markdown';
 
 export default class LexiconEntry {
 	constructor(
 		public readonly id: number,
 		public readonly word: string,
-		public readonly definition: string,
+		public readonly definition: Markdown,
 		public readonly firstSeen: Date,
 		public readonly tags: Set<Tag>,
 	) {}
@@ -13,7 +14,7 @@ export default class LexiconEntry {
 		return new LexiconEntry(
 			id,
 			word,
-			definition.replaceAll('\\n', '\n'),
+			new Markdown(definition),
 			new Date(firstSeen),
 			new Set(tags),
 		);

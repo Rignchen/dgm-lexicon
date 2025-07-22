@@ -11,3 +11,21 @@ html, body { height: 99%; }
 body {
 	background: var(--gradient);
 }
+
+code.markdown {
+	font-family: monospace;
+	font-size: 1.2em;
+	background-color: #CCC;
+}
+pre.markdown {
+	font-family: monospace;
+	font-size: 1.2em;
+	background-color: #CCC;
+	padding: 10px;
+	overflow-x: auto;
+}
+blockquote.markdown {
+	border-left: 5px solid #CCC;
+	padding-left: 10px;
+	margin-left: 10px;
+}
