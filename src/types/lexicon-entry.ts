@@ -72,7 +72,27 @@ export default class LexiconEntry {
 			tagAndEntriesLines.push(elements);
 		}
 
-		console.log(tagAndEntriesLines);
-		return [];
+		// Split entries on commas, taking care of quoted fields
+		const tagsAndEntriesArrays: string[][][] = [];
+		const csvEntriesRegex = /(?:^|,)(?:"([^"]*(?:""[^"]*)*)"|([^",\n]*))/gm;
+		for (const part of tagAndEntriesLines) {
+			// Remove title line
+			part.shift();
+			const lineElements = [];
+			for (const line of part) {
+				const elements: string[] = [];
+				let match;
+				while ((match = csvEntriesRegex.exec(line)) !== null) {
+					elements.push(match[1] !== undefined ? match[1].replace(/""/g, '"') : match[2]);
+				}
+				lineElements.push(elements);
+			}
+			tagsAndEntriesArrays.push(lineElements);
+		}
+
+		return LexiconEntry.fromCsvData(
+			tagsAndEntriesArrays[0],
+			tagsAndEntriesArrays[1],
+		);
 	}
 }
