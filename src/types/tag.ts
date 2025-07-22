@@ -4,8 +4,8 @@ export default class Tag {
 		public readonly color: string,
 	) {}
 
-	static fromObject(obj: {[name: string]: string}): {[name: string]: Tag} {
-		return Object.fromEntries(Object.entries(obj).map(([name, color]) => [name, new Tag(name, color)]));
+	static fromEntries(entries: [string, string][]): {[name: string]: Tag} {
+		return Object.fromEntries(entries.map(([name, color]) => [name, new Tag(name, color)]));
 	}
 }
 

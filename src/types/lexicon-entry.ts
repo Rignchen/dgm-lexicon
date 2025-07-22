@@ -22,7 +22,7 @@ export default class LexiconEntry {
 
 	static fromCsvData(tagArrays: [string,string][], lexiconEntriesArrays: string[][]): LexiconEntry[] {
 		// Create tags from the tag lines
-		const tags = Tag.fromObject(Object.fromEntries(tagArrays));
+		const tags = Tag.fromEntries(tagArrays);
 		const lexiconEntries: LexiconEntry[] = lexiconEntriesArrays.map((line) => {
 			const [id, word, definition, first_time_used, tagsString] = line;
 			const tagsArray = tagsString.split(',');
