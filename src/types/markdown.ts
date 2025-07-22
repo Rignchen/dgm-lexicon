@@ -22,8 +22,8 @@ export default class Markdown {
 			[/`{3}((?:.|\n)+?)`{3}/g, addHtmlBalises ? '<pre class="markdown">$1</pre>' : '$1'], // Code block
 			[/`(.+?)`/g, addHtmlBalises ? '<code class="markdown">$1</code>' : '$1'], // Inline code
 			// Links and images
-			[/!\[(.*?)\]\((.+?)\)/g, addHtmlBalises ? '<img src="$2" alt="$1">' : '![Image: $1]($2)'], // Images
-			[/\[(.+?)\]\((.+?)\)/g, addHtmlBalises ? '<a href="$2">$1</a>' : '$1 ($2)'], // Links
+			[/!\[(.*?)\]\((.+?)\)/g, addHtmlBalises ? '<img src="$2" alt="$1">' : '$1'], // Images
+			[/\[(.+?)\]\((.+?)\)/g, addHtmlBalises ? '<a href="$2">$1</a>' : '$1'], // Links
 			// Headings
 			[/^\s*#\s*(.+)/gm, addHtmlBalises ? '<h1>$1</h1>' : '$1'], // H1
 			[/^\s*##\s*(.+)/gm, addHtmlBalises ? '<h2>$1</h2>' : '$1'], // H2
