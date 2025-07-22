@@ -60,7 +60,19 @@ export default class LexiconEntry {
 		const emptyLineRegex = /\n?^(?:\s|,)*$\n?/m;
 		const tagsAndEntriesCsv = data.split(emptyLineRegex).map(line => line.trim()).filter(line => line.length > 0);
 
-		console.log(tagsAndEntriesCsv);
+		// Split lines of the csv, taking care of trailing commas
+		const tagAndEntriesLines: string[][] = [];
+		const csvLineRegex = /(^(?:"([^"]*(?:""[^"]*)*)"|([^",\n]*))(,(?:"([^"]*(?:""[^"]*)*)"|([^",\n]*)))*$)/gm;
+		for (const csv of tagsAndEntriesCsv) {
+			const elements: string[] = [];
+			let match;
+			while ((match = csvLineRegex.exec(csv)) !== null) {
+				elements.push(match[1] !== undefined ? match[1] : match[2]);
+			}
+			tagAndEntriesLines.push(elements);
+		}
+
+		console.log(tagAndEntriesLines);
 		return [];
 	}
 }
