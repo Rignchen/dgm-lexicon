@@ -9,19 +9,29 @@ export default class LexiconEntry {
 		public readonly tags: Set<Tag>,
 	) {}
 
+	static new(id: number, word: string, definition: string, firstSeen: string, tags: Tag[]): LexiconEntry {
+		return new LexiconEntry(
+			id,
+			word,
+			definition.replaceAll('\\n', '\n'),
+			new Date(firstSeen),
+			new Set(tags),
+		);
+	}
+
 	static fromCsvData(tagArrays: string[][], lexiconEntriesArrays: string[][]): LexiconEntry[] {
 		// Create tags from the tag lines
 		const tags = Tag.fromObject(Object.fromEntries(tagArrays));
 		const lexiconEntries: LexiconEntry[] = lexiconEntriesArrays.map((line) => {
 			const [id, word, definition, first_time_used, tagsString] = line;
 			const tagsArray = tagsString.split(',');
-			const tagSet = new Set(tagsArray.map(tagName => tags[tagName]));
-			return new LexiconEntry(
+			const tagList = tagsArray.map(tagName => tags[tagName]);
+			return LexiconEntry.new(
 				parseInt(id, 10),
 				word,
 				definition,
-				new Date(first_time_used),
-				tagSet,
+				first_time_used,
+				tagList,
 			);
 		})
 
