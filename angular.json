@@ -91,7 +91,10 @@
 						],
 						"styles": [
 							"src/styles.css"
-						]
+						],
+						"loader": {
+							".csv": "text"
+						}
 					}
 				}
 			}
