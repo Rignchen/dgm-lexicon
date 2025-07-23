@@ -1,23 +1,32 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { BackButton } from './back-button';
+import { Location } from '@angular/common';
 
 describe('BackButton', () => {
-  let component: BackButton;
-  let fixture: ComponentFixture<BackButton>;
+	let component: BackButton;
+	let fixture: ComponentFixture<BackButton>;
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [BackButton]
-    })
-    .compileComponents();
+	beforeEach(async () => {
+		await TestBed.configureTestingModule({
+			imports: [BackButton]
+		})
+		.compileComponents();
 
-    fixture = TestBed.createComponent(BackButton);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+		fixture = TestBed.createComponent(BackButton);
+		component = fixture.componentInstance;
+		fixture.detectChanges();
+	});
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
+	it('should create', () => {
+		expect(component).toBeTruthy();
+	});
+
+	it('should bring back to the previous page when clicked', () => {
+		const backButtonElement: HTMLElement = fixture.nativeElement.querySelector('span');
+		const location = TestBed.inject(Location);
+		spyOn(location, 'back');
+		backButtonElement.click();
+		expect(location.back).toHaveBeenCalled();
+	});
 });
