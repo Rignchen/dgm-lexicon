@@ -23,4 +23,11 @@ describe('Card', () => {
 	it('should create', () => {
 		expect(component).toBeTruthy();
 	});
+
+	it('should call onClick when clicked', () => {
+		spyOn(component, 'onClick');
+		const cardElement: HTMLElement = fixture.nativeElement.querySelector('.card');
+		cardElement.click();
+		expect(component.onClick).toHaveBeenCalled();
+	});
 });
