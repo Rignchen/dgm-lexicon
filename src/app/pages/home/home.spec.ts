@@ -1,8 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Home } from './home';
-import Markdown from '#types/markdown';
-import LexiconEntry from '#types/lexicon-entry';
+import { Word } from '#pages/word';
 
 describe('Home', () => {
 	let component: Home;
@@ -35,5 +34,13 @@ describe('Home', () => {
 		expect(sortedLexicon.length).toBe(2);
 		expect(sortedLexicon[0].word).toBe('Dé de Gaëlle');
 		expect(sortedLexicon[1].word).toBe('Cri de Guerre');
+	});
+
+	it('should redirect to lexicon entry page on card click', () => {
+		spyOn(Word, 'redirect').and.callThrough();
+		const card = fixture.nativeElement.querySelector('app-card');
+		const cardClickable = card.querySelector('.card');
+		cardClickable.click();
+		expect(Word.redirect).toHaveBeenCalledWith(component['router'], component.filteredData[0].id);
 	});
 });
