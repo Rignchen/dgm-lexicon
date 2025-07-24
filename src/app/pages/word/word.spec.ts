@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Word } from './word';
 import { provideRouter } from '@angular/router';
+import { Error404 } from '#pages/error-404';
 
 describe('Word', () => {
 	let component: Word;
@@ -21,5 +22,37 @@ describe('Word', () => {
 
 	it('should create', () => {
 		expect(component).toBeTruthy();
+	});
+
+	describe('redirect to Error404', () => {
+		beforeEach(() => {
+			spyOn(Error404, 'redirect').and.callThrough();
+		});
+
+		it('should redirect to Error404 if id is not a number', () => {
+			const router = component['router'];
+			(component['route'].params as any).subscribe = (callback: (params: any) => void) => {
+				callback({ id: 'not-a-number' });
+			};
+			component.ngOnInit();
+			expect(Error404.redirect).toHaveBeenCalledWith(router);
+		});
+
+		it('should redirect to Error404 if id does not exist', () => {
+			const router = component['router'];
+			(component['route'].params as any).subscribe = (callback: (params: any) => void) => {
+				callback({ id: '9' });
+			};
+			component.ngOnInit();
+			expect(Error404.redirect).toHaveBeenCalledWith(router);
+		});
+
+		it('should not redirect to Error404 if id exists', () => {
+			(component['route'].params as any).subscribe = (callback: (params: any) => void) => {
+				callback({ id: '1' });
+			};
+			component.ngOnInit();
+			expect(Error404.redirect).not.toHaveBeenCalled();
+		});
 	});
 });
