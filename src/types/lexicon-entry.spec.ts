@@ -36,6 +36,24 @@ describe("LexiconEntry", () => {
 		expect(newLexiconEntriesSpy).toHaveBeenCalledWith(1, "word1", "definition1", "2023-10-02", [new Tag("tag1", "#00ff00")]);
 	});
 
+	it("should order entries by firstSeen date", () => {
+		const tagArrays: [string, string][] = [
+			["tag0", "#ff0000"],
+			["tag1", "#00ff00"],
+		];
+		const lexiconEntriesArrays: string[][] = [
+			["0", "word0", "definition0", "2023-10-01", "tag0"],
+			["1", "word1", "definition1", "2023-10-02", "tag1"],
+			["2", "word2", "definition2", "2023-09-30", "tag0,tag1"],
+		];
+
+		const lexiconEntries = LexiconEntry.fromCsvData(tagArrays, lexiconEntriesArrays);
+
+		expect(lexiconEntries[0].word).toBe("word1");
+		expect(lexiconEntries[1].word).toBe("word0");
+		expect(lexiconEntries[2].word).toBe("word2");
+	});
+
 	it("should parse from CSV data while respecting quoted fields (which can contain commas, new lines, and quotes)", () => {
 		const csvData = `tag,color,,,
 tag0,#ff0000,,,
