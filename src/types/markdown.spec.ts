@@ -48,4 +48,28 @@ describe('Markdown', () => {
 			expect(result).toBe('This is strikethrough text');
 		});
 	});
+
+	describe('inline code', () => {
+		const input = new Markdown('This is `inline code` text');
+		it('should convert to HTML', () => {
+			const result = input.toHtml();
+			expect(result).toBe('This is <code class="markdown">inline code</code> text');
+		});
+		it('should convert to plain text', () => {
+			const result = input.toString();
+			expect(result).toBe('This is inline code text');
+		});
+	});
+
+	describe('code block', () => {
+		const input = new Markdown('```\nThis is\na code block\n```');
+		it('should convert to HTML', () => {
+			const result = input.toHtml();
+			expect(result).toBe('<pre class="markdown"><br>This is<br>a code block<br></pre>');
+		});
+		it('should convert to plain text', () => {
+			const result = input.toString();
+			expect(result).toBe('\nThis is\na code block\n');
+		});
+	});
 });
