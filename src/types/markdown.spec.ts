@@ -192,4 +192,16 @@ describe('Markdown', () => {
 			expect(result).toBe('This is an image');
 		});
 	});
+
+	describe('blockquotes', () => {
+		const input = new Markdown('> This is a blockquote');
+		it('should convert to HTML', () => {
+			const result = input.toHtml();
+			expect(result).toBe('<blockquote class="markdown">This is a blockquote</blockquote>');
+		});
+		it('should convert to plain text', () => {
+			const result = input.toString();
+			expect(result).toBe('This is a blockquote');
+		});
+	});
 });
