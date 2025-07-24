@@ -41,7 +41,7 @@ export default class Markdown {
 				return `<ol>${listItems}</ol>`;
 			} : '$1'], // Ordered lists
 			// Other
-			[/^\s*> (.+)/gm, addHtmlBalises ? '<blockquote class="markdown">$1</blockquote>' : '\n> $1'], // Blockquotes
+			[/^\s*> (.+)/gm, addHtmlBalises ? '<blockquote class="markdown">$1</blockquote>' : '$1'], // Blockquotes
 			[/\n/g, addHtmlBalises ? '<br>' : '\n'], // Line breaks
 		];
 		let result = this.text;
