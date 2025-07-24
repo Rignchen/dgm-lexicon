@@ -25,12 +25,12 @@ export default class Markdown {
 			[/!\[(.*?)\]\((.+?)\)/g, addHtmlBalises ? '<img src="$2" alt="$1">' : '$1'], // Images
 			[/\[(.+?)\]\((.+?)\)/g, addHtmlBalises ? '<a href="$2">$1</a>' : '$1'], // Links
 			// Headings
-			[/^\s*#\s*(.+)/gm, addHtmlBalises ? '<h1>$1</h1>' : '$1'], // H1
-			[/^\s*##\s*(.+)/gm, addHtmlBalises ? '<h2>$1</h2>' : '$1'], // H2
-			[/^\s*###\s*(.+)/gm, addHtmlBalises ? '<h3>$1</h3>' : '$1'], // H3
-			[/^\s*####\s*(.+)/gm, addHtmlBalises ? '<h4>$1</h4>' : '$1'], // H4
-			[/^\s*#####\s*(.+)/gm, addHtmlBalises ? '<h5>$1</h5>' : '$1'], // H5
-			[/^\s*######\s*(.+)/gm, addHtmlBalises ? '<h6>$1</h6>' : '$1'], // H6
+			[/^\s*#\s+(.+)/gm, addHtmlBalises ? '<h1>$1</h1>' : '$1'], // H1
+			[/^\s*##\s+(.+)/gm, addHtmlBalises ? '<h2>$1</h2>' : '$1'], // H2
+			[/^\s*###\s+(.+)/gm, addHtmlBalises ? '<h3>$1</h3>' : '$1'], // H3
+			[/^\s*####\s+(.+)/gm, addHtmlBalises ? '<h4>$1</h4>' : '$1'], // H4
+			[/^\s*#####\s+(.+)/gm, addHtmlBalises ? '<h5>$1</h5>' : '$1'], // H5
+			[/^\s*######\s+(.+)/gm, addHtmlBalises ? '<h6>$1</h6>' : '$1'], // H6
 			// Lists
 			[/((?:\n?^(?:\s*)-(?:\s+)(?:.+)$)+)/gm, addHtmlBalises ? (match: string) => {
 				const listItems = match.split('\n').map(item => item.replace(/^\s*-\s+/, '<li>') + '</li>').join('');
