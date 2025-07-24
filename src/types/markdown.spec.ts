@@ -24,4 +24,16 @@ describe('Markdown', () => {
 			expect(result).toBe('This is underline text');
 		});
 	});
+
+	describe('italic', () => {
+		const input = new Markdown('This is *italic* text');
+		it('should convert to HTML', () => {
+			const result = input.toHtml();
+			expect(result).toBe('This is <em>italic</em> text');
+		});
+		it('should convert to plain text', () => {
+			const result = input.toString();
+			expect(result).toBe('This is italic text');
+		});
+	});
 });
