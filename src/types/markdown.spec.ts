@@ -36,4 +36,16 @@ describe('Markdown', () => {
 			expect(result).toBe('This is italic text');
 		});
 	});
+
+	describe('strikethrough', () => {
+		const input = new Markdown('This is ~~strikethrough~~ text');
+		it('should convert to HTML', () => {
+			const result = input.toHtml();
+			expect(result).toBe('This is <del>strikethrough</del> text');
+		});
+		it('should convert to plain text', () => {
+			const result = input.toString();
+			expect(result).toBe('This is strikethrough text');
+		});
+	});
 });
