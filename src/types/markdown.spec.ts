@@ -204,4 +204,16 @@ describe('Markdown', () => {
 			expect(result).toBe('This is a blockquote');
 		});
 	});
+
+	describe('line breaks', () => {
+		const input = new Markdown('This is a line\nbreak');
+		it('should convert to HTML', () => {
+			const result = input.toHtml();
+			expect(result).toBe('This is a line<br>break');
+		});
+		it('should convert to plain text', () => {
+			const result = input.toString();
+			expect(result).toBe('This is a line\nbreak');
+		});
+	});
 });
