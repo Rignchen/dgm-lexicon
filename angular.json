@@ -94,10 +94,14 @@
 						],
 						"loader": {
 							".csv": "text"
-						}
+						},
+						"karmaConfig": "karma.conf.js"
 					}
 				}
 			}
 		}
+	},
+	"cli": {
+		"analytics": false
 	}
 }

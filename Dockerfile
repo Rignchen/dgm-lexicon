@@ -17,6 +17,14 @@ FROM app AS builder
 COPY --from=dep /app/node_modules ./node_modules
 RUN pnpm build
 
+# Test stage
+FROM base as test
+RUN apk add --no-cache chromium
+ENV CHROME_BIN=/usr/bin/chromium
+COPY karma.conf.js ./
+COPY --from=dep /app .
+RUN ["pnpm", "test", "--watch=false", "--browsers=ChromeHeadless"]
+
 # Production stage
 FROM base AS prod
 # Copy built application from builder stage
