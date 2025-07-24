@@ -185,7 +185,7 @@ describe('Markdown', () => {
 		const input = new Markdown('This is an ![image](https://example.com/image.jpg)');
 		it('should convert to HTML', () => {
 			const result = input.toHtml();
-			expect(result).toBe('This is an <img src="https://example.com/image.jpg" alt="image">');
+			expect(result).toBe('This is an <img src="https://example.com/image.jpg" alt="image" width=100%>');
 		});
 		it('should convert to plain text', () => {
 			const result = input.toString();
