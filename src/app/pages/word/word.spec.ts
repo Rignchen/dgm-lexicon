@@ -55,4 +55,17 @@ describe('Word', () => {
 			expect(Error404.redirect).not.toHaveBeenCalled();
 		});
 	});
+
+	it('should redirect to the page with the correct id', () => {
+		const router = component['router'];
+		spyOn(router, 'navigate');
+
+		let id = 1;
+		Word.redirect(router, id);
+		expect(router.navigate).toHaveBeenCalledWith(['/words', id]);
+
+		id = 42;
+		Word.redirect(router, id);
+		expect(router.navigate).toHaveBeenCalledWith(['/words', id]);
+	});
 });
