@@ -168,4 +168,16 @@ describe('Markdown', () => {
 			expect(result).toBe('1. Item 1\n2. Item 2\n3. Item 3');
 		});
 	});
+
+	describe('links', () => {
+		const input = new Markdown('This is a [link](https://example.com)');
+		it('should convert to HTML', () => {
+			const result = input.toHtml();
+			expect(result).toBe('This is a <a href="https://example.com">link</a>');
+		});
+		it('should convert to plain text', () => {
+			const result = input.toString();
+			expect(result).toBe('This is a link');
+		});
+	});
 });
