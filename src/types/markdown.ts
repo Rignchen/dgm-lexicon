@@ -35,11 +35,11 @@ export default class Markdown {
 			[/((?:\n?^(?:\s*)-(?:\s+)(?:.+)$)+)/gm, addHtmlBalises ? (match: string) => {
 				const listItems = match.split('\n').map(item => item.replace(/^\s*-\s+/, '<li>') + '</li>').join('');
 				return `<ul>${listItems}</ul>`;
-			} : '\n$1'], // Unordered lists
+			} : '$1'], // Unordered lists
 			[/((?:\n?^(?:\s*)\d+\.\s+.+$)+)/gm, addHtmlBalises ? (match: string) => {
 				const listItems = match.split('\n').map(item => item.replace(/^\s*\d+\.\s+/, '<li>') + '</li>').join('');
 				return `<ol>${listItems}</ol>`;
-			} : '\n$1'], // Ordered lists
+			} : '$1'], // Ordered lists
 			// Other
 			[/^\s*> (.+)/gm, addHtmlBalises ? '<blockquote class="markdown">$1</blockquote>' : '\n> $1'], // Blockquotes
 			[/\n/g, addHtmlBalises ? '<br>' : '\n'], // Line breaks
