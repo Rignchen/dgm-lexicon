@@ -7,6 +7,9 @@ This situation leads to him having to explain these jokes to people he meets whi
 dgm-lexicon is a website created so that people can look up these jokes and references and understand them without having to ask.
 
 # Installation
+## Just use it
+If you just want to visit the website without installing anything, it is available at [https://rignchen.github.io/dgm-lexicon/](https://rignchen.github.io/dgm-lexicon/).
+
 ## Manual Installation
 1. Dependencies
 To install dgm-lexicon, you need to have [Node.js](https://nodejs.org/) installed on your computer.\
