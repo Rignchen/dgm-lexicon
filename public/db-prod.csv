@@ -5,25 +5,30 @@ jdr mardi,#3357FF,,,
 other,#FF33A1,,,
 ,,,,
 id,word,definition,first_time_used,tags
-0,Carte X,"Action utilisée en jeu de rôle pour signaler au MJ que l'on est inconfortable avec ce que le MJ vient de dire et que l'on souhaite qu'iel change ce qu'iel vient de dire",2023-05-10,help
+0,Carte X,Action utilisée en jeu de rôle pour signaler au MJ que l'on est inconfortable avec ce que le MJ vient de dire et que l'on souhaite qu'iel change ce qu'iel vient de dire,2023-05-10,help
 1,Lueur d'espoir,"Action utilisée en jeu de rôle pour signaler au MJ que l'on est dans une situation compliquée et que l'on aimerait que le MJ change la session prévue pour une session légère, joyeuse et sans enjeu",2023-05-10,help
 2,Dégage,"[Perroquet Dracula](https://fr.wikipedia.org/wiki/Psittrichas_de_Pesquet) obtenu lors d’une session de jeu de rôle par [Poulet Rayonnant](words/6) après utilisation d'une [_lueur d'espoir_](words/1)
 Les perroquets draculas sont frutivore et Dégage adore les figues, c’est pourquoi il a un sac remplis de figues",2023-05-10,"animal,jdr mardi"
-3, Délicatesse,"Outil récupéré lors d’une session de jeu de rôle, utilisé comme arme violente dù à ses lames rotatives. Les viewers ont réussi a marchander un +2 dégâts garanti en échange d'un -2 en capacité de combat quand on tient l'arme",2023-05-10,"jdr mardi"
+3, Délicatesse,"Outil récupéré lors d’une session de jeu de rôle, utilisé comme arme violente dù à ses lames rotatives. Les viewers ont réussi a marchander un +2 dégâts garanti en échange d'un -2 en capacité de combat quand on tient l'arme",2023-05-10,jdr mardi
 4,Foulcamp,"Tout premier animal de compagnie obtenu lors d’une session de jeu de rôle par [Loup Solitaire](words/7), c'est un [Loup](https://fr.wikipedia.org/wiki/Canis_lupusé) qu'on a eu grâce au contrôle mental.
 à un moment on a été séparé de lui et de [Kastoi](words/5) Foulcamp a été le dernier à nous retrouver, cepandant Naar l'avait manipulé pour le retourner contre nous en lui disant qu'on l'avait abandonné et que l'on ne l'aimait pas vraiment car on lui avait fait du contrôle mental et qu'en gros on le forçait, alors qu'on a eu une longue dans son esprit pour le récupérer. On a finalement réussi en lui mettant le pouvoir confié par la [st lopez](words/10) en lui et au même moment crée une giga entité divine qui agit a son bon vouloir, mais commence peu à peu à revenir du côté de la lumière",2023-05-10,"animal,jdr mardi"
 5,Kastoi,"Deuxième animal de compagnie obtenu lors d’une session de jeu de rôle par [Loup Solitaire](words/7), c'est un [Lynx](https://fr.wikipedia.org/wiki/Lynx)
 à un moment on a été séparé de lui et de [Foulcamp](words/4) Kastoi a été le premier à nous retrouver, cepandant il était très malade et aucun remède n'a été trouvé.",2023-05-10,"animal,jdr mardi"
 6,Poulet rayonnant,"Nom du personnage des jdr des lives du mardi soir, c'est le diciple de [Loup Solitaire](words/7)
 Il s'agit d'un chevalier de la lumière, il ne peut donc pas enfraindre l'entièreté de la [convention de genève](https://fr.wikipedia.org/wiki/Conventions_de_Gen%C3%A8ve)
-Poulet rayonnant a perdu un membre lors d'une session de jeu de rôle qui lui réduisent ses capacités de combat",2023-05-10,"jdr mardi"
+Poulet rayonnant a perdu un membre lors d'une session de jeu de rôle qui lui réduisent ses capacités de combat",2023-05-10,jdr mardi
 7,Loup Solitaire,"Personnage des jdr des lives du mardi soir qui a fini son aventure, il est donc devenu un PNJ
 Il s'agit d'un chevalier de la lumière, il ne peut donc pas enfraindre l'entièreté de la [convention de genève](https://fr.wikipedia.org/wiki/Conventions_de_Gen%C3%A8ve)
-Loup Solitaire a perdu une jambe lors d'une session de jeu de rôle",2023-05-10,"jdr mardi"
+Loup Solitaire a perdu une jambe lors d'une session de jeu de rôle",2023-05-10,jdr mardi
 8,Le Savon Merlin,"Pour son JDR sur [Immortal Goblins](https://devenirmaitredujeu.podia.com/immortal-goblins-systeme), Julien a crée un PNJ nommé Merlin et qui fabrique du savon, il a tellement tout netoyé avec qu'une armée de goblins venu l'attaquer a été vaincu juste en glissant sur le savon",2023-05-10,other
-9,Chevalier Kai rat,"Autre nom de [Loup Solitaire](words/7)",2023-05-10,"jdr mardi"
-10,Kronk,"Autre nom de [Loup Solitaire](words/7)",2023-05-10,"jdr mardi"
-11,Prarg,"PNJ dans la saison 1 avec [Loup Solitaire](words/7), il faisait que fuir, giga trouillard, giga chiant, mais faisait croire qu il était fort (on a fini par le dégradé)",2023-05-10,"jdr mardi"
+9,Chevalier Kai rat,Autre nom de [Loup Solitaire](words/7),2023-05-10,jdr mardi
+10,Kronk,Autre nom de [Loup Solitaire](words/7),2023-05-10,jdr mardi
+11,Prarg,"PNJ dans la saison 1 avec [Loup Solitaire](words/7), il faisait que fuir, giga trouillard, giga chiant, mais faisait croire qu il était fort (on a fini par le dégradé)",2023-05-10,jdr mardi
 12,Armure en Ananas,"Apparement il serait possible de mettre une bille de fer a 1000°C sur une peau d'ananas sans que ça brule.
-Partant de ce principe on s'est dit que avant un combat contre un dragon, plutôt que d'acheter une armur en métaux enchantés pour résister aux flammes, ça coutait moins cher d'acheter beaucoup d'ananas et faire une armure avec leur peau.",2023-05-10,"other"
-13,Les buissons (nos ennemis),"[Une fois](https://vm.tiktok.com/ZNduraRtq/) on a décidé de se cacher dans un buisson pour éviter un combat pendant que nos potes sont allés se battre. Le fait de se cacher dans le buisson nous a assommé.",2023-05-10,"jdr mardi"
+Partant de ce principe on s'est dit que avant un combat contre un dragon, plutôt que d'acheter une armur en métaux enchantés pour résister aux flammes, ça coutait moins cher d'acheter beaucoup d'ananas et faire une armure avec leur peau.",2023-05-10,other
+13,Les buissons (nos ennemis),[Une fois](https://vm.tiktok.com/ZNduraRtq/) on a décidé de se cacher dans un buisson pour éviter un combat pendant que nos potes sont allés se battre. Le fait de se cacher dans le buisson nous a assommé.,2023-05-10,jdr mardi
+14,Les démons Bretons,"En partant du principe que à ta mort ce en quoi tu crois c'est ce qui t'attend, il existerait un monde où
+- Un gros méchant meurttrier qui est persuadé que ce qu'il fait est bien finit au Paradis
+- Un prêtre qui a passé sa vie à prier et a aider les gens et a la fin de sa vie il craque il mange un beignet, péché de gourmandise, et finit en enfer
+Du coup ensuite dans une campagne on pourrait avoir les joueurs qui vont en enfer et y voient un prètre qui se fait torturer avec un goblin qui mets lui mets du sirop d'êrable sur une crêpe en disant ""miam miam c'est 50 ans de damnation en plus ça"" avec le prêtre qui pleure ""non pas le sirop d'érable""
+On s’est ensuite demandé si les Bretons étaient des démons qui se sont fait passés pour des humains et envoient les gens en enfer avec des pécher de gourmandise parce qu’ils font des trucs trop bon",2025-07-26,other
