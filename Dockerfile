@@ -19,15 +19,19 @@ RUN rm public/db.csv && mv public/db-prod.csv public/db.csv
 RUN pnpm build
 
 # Test stage
-FROM base as test
+FROM base AS test
 RUN apk add --no-cache chromium
 ENV CHROME_BIN=/usr/bin/chromium
 COPY karma.conf.js ./
 COPY --from=dep /app .
 RUN ["pnpm", "test", "--watch=false", "--browsers=ChromeHeadless"]
+RUN touch all-tests-passed
 
 # Production stage
 FROM base AS prod
+# Ensure the test stage has passed
+COPY --from=test /app/all-tests-passed /app/all-tests-passed
+RUN rm /app/all-tests-passed
 # Copy built application from builder stage
 COPY --from=builder /app/dist/dgm-lexicon/browser .
 EXPOSE 8080
