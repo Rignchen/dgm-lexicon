@@ -31,6 +31,9 @@ export default class Markdown {
 			[/^\s*####\s+(.+)/gm, addHtmlBalises ? '<h4>$1</h4>' : '$1'], // H4
 			[/^\s*#####\s+(.+)/gm, addHtmlBalises ? '<h5>$1</h5>' : '$1'], // H5
 			[/^\s*######\s+(.+)/gm, addHtmlBalises ? '<h6>$1</h6>' : '$1'], // H6
+			// Checkboxes
+			[/^\s*-\s+\[[xX]\]\s+(.+)/gm, addHtmlBalises ? '<input type="checkbox" checked>$1' : '- [X] $1'], // Checked checkbox
+			[/^\s*-\s+\[\s\]\s+(.+)/gm, addHtmlBalises ? '<input type="checkbox">$1' : '- [ ] $1'], // Unchecked checkbox
 			// Lists
 			[/((?:\n?^(?:\s*)-(?:\s+)(?:.+)$)+\n?)/gm, addHtmlBalises ? (match: string) => {
 				const listItems = match.split('\n').map(item => item.replace(/^\s*-\s+(.+)/, '<li>$1</li>')).join('');

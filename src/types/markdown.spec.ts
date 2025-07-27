@@ -147,6 +147,32 @@ describe('Markdown', () => {
 		});
 	});
 
+	describe('checkboxes', () => {
+		describe('unchecked checkbox', () => {
+			const input = new Markdown('- [ ] Unchecked item');
+			it('should convert to HTML', () => {
+				const result = input.toHtml();
+				expect(result).toBe('<input type="checkbox">Unchecked item');
+			});
+			it('should convert to plain text', () => {
+				const result = input.toString();
+				expect(result).toBe('- [ ] Unchecked item');
+			});
+		});
+
+		describe('checked checkbox', () => {
+			const input = new Markdown('- [X] Checked item');
+			it('should convert to HTML', () => {
+				const result = input.toHtml();
+				expect(result).toBe('<input type="checkbox" checked>Checked item');
+			});
+			it('should convert to plain text', () => {
+				const result = input.toString();
+				expect(result).toBe('- [X] Checked item');
+			});
+		});
+	});
+
 	describe('lists', () => {
 		describe('unordered lists', () => {
 			const input = new Markdown('- Item 1\n- Item 2\n- Item 3\n');
