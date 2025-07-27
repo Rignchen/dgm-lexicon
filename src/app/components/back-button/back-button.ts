@@ -18,10 +18,19 @@ export class BackButton {
 	 * Otherwise, it redirects to the home page.
 	 */
 	backButtonClicked() {
-		if (document.referrer.startsWith(`${window.location.origin}/`)) {
+		if (this.getLastRoute().startsWith(`${window.location.origin}/`)) {
 			this.location.back();
 		} else {
 			this.router.navigate(['/']);
 		}
+	}
+
+	/**
+	 * Returns the last route from the browser history.
+	 * This is needed in order to be able to test the back button.
+	 ** @returns The last route as a string.
+	 */
+	getLastRoute(): string {
+		return document.referrer;
 	}
 }
