@@ -7,13 +7,15 @@ FROM base AS app
 COPY package.json pnpm-lock.yaml ./
 COPY angular.json ./
 COPY tsconfig.json tsconfig.app.json tsconfig.spec.json ./
+
+FROM app AS app-files
 COPY src ./src
 COPY public ./public
 
 FROM app AS dep
 RUN pnpm install --frozen-lockfile
 
-FROM app AS builder
+FROM app-files AS builder
 COPY --from=dep /app/node_modules ./node_modules
 RUN rm public/db.csv && mv public/db-prod.csv public/db.csv
 RUN pnpm build
@@ -23,7 +25,8 @@ FROM base AS test
 RUN apk add --no-cache chromium
 ENV CHROME_BIN=/usr/bin/chromium
 COPY karma.conf.js ./
-COPY --from=dep /app .
+COPY --from=app-files /app .
+COPY --from=dep /app/node_modules ./node_modules
 RUN ["pnpm", "test", "--watch=false", "--browsers=ChromeHeadless"]
 RUN touch all-tests-passed
 
