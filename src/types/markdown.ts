@@ -32,12 +32,12 @@ export default class Markdown {
 			[/^\s*#####\s+(.+)/gm, addHtmlBalises ? '<h5>$1</h5>' : '$1'], // H5
 			[/^\s*######\s+(.+)/gm, addHtmlBalises ? '<h6>$1</h6>' : '$1'], // H6
 			// Lists
-			[/((?:\n?^(?:\s*)-(?:\s+)(?:.+)$)+)/gm, addHtmlBalises ? (match: string) => {
-				const listItems = match.split('\n').map(item => item.replace(/^\s*-\s+/, '<li>') + '</li>').join('');
+			[/((?:\n?^(?:\s*)-(?:\s+)(?:.+)$)+\n?)/gm, addHtmlBalises ? (match: string) => {
+				const listItems = match.split('\n').map(item => item.replace(/^\s*-\s+(.+)/, '<li>$1</li>')).join('');
 				return `<ul>${listItems}</ul>`;
 			} : '$1'], // Unordered lists
-			[/((?:\n?^(?:\s*)\d+\.\s+.+$)+)/gm, addHtmlBalises ? (match: string) => {
-				const listItems = match.split('\n').map(item => item.replace(/^\s*\d+\.\s+/, '<li>') + '</li>').join('');
+			[/((?:\n?^(?:\s*)\d+\.\s+.+$)+\n?)/gm, addHtmlBalises ? (match: string) => {
+				const listItems = match.split('\n').map(item => item.replace(/^\s*\d+\.\s+(.+)/, '<li>$1</li>')).join('');
 				return `<ol>${listItems}</ol>`;
 			} : '$1'], // Ordered lists
 			// Other

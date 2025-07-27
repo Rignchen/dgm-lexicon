@@ -146,26 +146,26 @@ describe('Markdown', () => {
 	});
 
 	describe('unordered lists', () => {
-		const input = new Markdown('- Item 1\n- Item 2\n- Item 3');
+		const input = new Markdown('- Item 1\n- Item 2\n- Item 3\n');
 		it('should convert to HTML', () => {
 			const result = input.toHtml();
 			expect(result).toBe('<ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>');
 		});
 		it('should convert to plain text', () => {
 			const result = input.toString();
-			expect(result).toBe('- Item 1\n- Item 2\n- Item 3');
+			expect(result).toBe('- Item 1\n- Item 2\n- Item 3\n');
 		});
 	});
 
 	describe('ordered lists', () => {
-		const input = new Markdown('1. Item 1\n2. Item 2\n3. Item 3');
+		const input = new Markdown('1. Item 1\n2. Item 2\n3. Item 3\n');
 		it('should convert to HTML', () => {
 			const result = input.toHtml();
 			expect(result).toBe('<ol><li>Item 1</li><li>Item 2</li><li>Item 3</li></ol>');
 		});
 		it('should convert to plain text', () => {
 			const result = input.toString();
-			expect(result).toBe('1. Item 1\n2. Item 2\n3. Item 3');
+			expect(result).toBe('1. Item 1\n2. Item 2\n3. Item 3\n');
 		});
 	});
 
