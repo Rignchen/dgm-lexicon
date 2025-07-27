@@ -73,99 +73,103 @@ describe('Markdown', () => {
 		});
 	});
 
-	describe('heading 1', () => {
-		const input = new Markdown('# Heading 1');
-		it('should convert to HTML', () => {
-			const result = input.toHtml();
-			expect(result).toBe('<h1>Heading 1</h1>');
+	describe('headings', () => {
+		describe('heading 1', () => {
+			const input = new Markdown('# Heading 1');
+			it('should convert to HTML', () => {
+				const result = input.toHtml();
+				expect(result).toBe('<h1>Heading 1</h1>');
+			});
+			it('should convert to plain text', () => {
+				const result = input.toString();
+				expect(result).toBe('Heading 1');
+			});
 		});
-		it('should convert to plain text', () => {
-			const result = input.toString();
-			expect(result).toBe('Heading 1');
+
+		describe('heading 2', () => {
+			const input = new Markdown('## Heading 2');
+			it('should convert to HTML', () => {
+				const result = input.toHtml();
+				expect(result).toBe('<h2>Heading 2</h2>');
+			});
+			it('should convert to plain text', () => {
+				const result = input.toString();
+				expect(result).toBe('Heading 2');
+			});
+		});
+
+		describe('heading 3', () => {
+			const input = new Markdown('### Heading 3');
+			it('should convert to HTML', () => {
+				const result = input.toHtml();
+				expect(result).toBe('<h3>Heading 3</h3>');
+			});
+			it('should convert to plain text', () => {
+				const result = input.toString();
+				expect(result).toBe('Heading 3');
+			});
+		});
+
+		describe('heading 4', () => {
+			const input = new Markdown('#### Heading 4');
+			it('should convert to HTML', () => {
+				const result = input.toHtml();
+				expect(result).toBe('<h4>Heading 4</h4>');
+			});
+			it('should convert to plain text', () => {
+				const result = input.toString();
+				expect(result).toBe('Heading 4');
+			});
+		});
+
+		describe('heading 5', () => {
+			const input = new Markdown('##### Heading 5');
+			it('should convert to HTML', () => {
+				const result = input.toHtml();
+				expect(result).toBe('<h5>Heading 5</h5>');
+			});
+			it('should convert to plain text', () => {
+				const result = input.toString();
+				expect(result).toBe('Heading 5');
+			});
+		});
+
+		describe('heading 6', () => {
+			const input = new Markdown('###### Heading 6');
+			it('should convert to HTML', () => {
+				const result = input.toHtml();
+				expect(result).toBe('<h6>Heading 6</h6>');
+			});
+			it('should convert to plain text', () => {
+				const result = input.toString();
+				expect(result).toBe('Heading 6');
+			});
 		});
 	});
 
-	describe('heading 2', () => {
-		const input = new Markdown('## Heading 2');
-		it('should convert to HTML', () => {
-			const result = input.toHtml();
-			expect(result).toBe('<h2>Heading 2</h2>');
+	describe('lists', () => {
+		describe('unordered lists', () => {
+			const input = new Markdown('- Item 1\n- Item 2\n- Item 3\n');
+			it('should convert to HTML', () => {
+				const result = input.toHtml();
+				expect(result).toBe('<ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>');
+			});
+			it('should convert to plain text', () => {
+				const result = input.toString();
+				expect(result).toBe('- Item 1\n- Item 2\n- Item 3\n');
+			});
 		});
-		it('should convert to plain text', () => {
-			const result = input.toString();
-			expect(result).toBe('Heading 2');
-		});
-	});
 
-	describe('heading 3', () => {
-		const input = new Markdown('### Heading 3');
-		it('should convert to HTML', () => {
-			const result = input.toHtml();
-			expect(result).toBe('<h3>Heading 3</h3>');
-		});
-		it('should convert to plain text', () => {
-			const result = input.toString();
-			expect(result).toBe('Heading 3');
-		});
-	});
-
-	describe('heading 4', () => {
-		const input = new Markdown('#### Heading 4');
-		it('should convert to HTML', () => {
-			const result = input.toHtml();
-			expect(result).toBe('<h4>Heading 4</h4>');
-		});
-		it('should convert to plain text', () => {
-			const result = input.toString();
-			expect(result).toBe('Heading 4');
-		});
-	});
-
-	describe('heading 5', () => {
-		const input = new Markdown('##### Heading 5');
-		it('should convert to HTML', () => {
-			const result = input.toHtml();
-			expect(result).toBe('<h5>Heading 5</h5>');
-		});
-		it('should convert to plain text', () => {
-			const result = input.toString();
-			expect(result).toBe('Heading 5');
-		});
-	});
-
-	describe('heading 6', () => {
-		const input = new Markdown('###### Heading 6');
-		it('should convert to HTML', () => {
-			const result = input.toHtml();
-			expect(result).toBe('<h6>Heading 6</h6>');
-		});
-		it('should convert to plain text', () => {
-			const result = input.toString();
-			expect(result).toBe('Heading 6');
-		});
-	});
-
-	describe('unordered lists', () => {
-		const input = new Markdown('- Item 1\n- Item 2\n- Item 3\n');
-		it('should convert to HTML', () => {
-			const result = input.toHtml();
-			expect(result).toBe('<ul><li>Item 1</li><li>Item 2</li><li>Item 3</li></ul>');
-		});
-		it('should convert to plain text', () => {
-			const result = input.toString();
-			expect(result).toBe('- Item 1\n- Item 2\n- Item 3\n');
-		});
-	});
-
-	describe('ordered lists', () => {
-		const input = new Markdown('1. Item 1\n2. Item 2\n3. Item 3\n');
-		it('should convert to HTML', () => {
-			const result = input.toHtml();
-			expect(result).toBe('<ol><li>Item 1</li><li>Item 2</li><li>Item 3</li></ol>');
-		});
-		it('should convert to plain text', () => {
-			const result = input.toString();
-			expect(result).toBe('1. Item 1\n2. Item 2\n3. Item 3\n');
+		describe('ordered lists', () => {
+			const input = new Markdown('1. Item 1\n2. Item 2\n3. Item 3\n');
+			it('should convert to HTML', () => {
+				const result = input.toHtml();
+				expect(result).toBe('<ol><li>Item 1</li><li>Item 2</li><li>Item 3</li></ol>');
+			});
+			it('should convert to plain text', () => {
+				const result = input.toString();
+				expect(result).toBe('1. Item 1\n2. Item 2\n3. Item 3\n');
+			});
 		});
 	});
 
