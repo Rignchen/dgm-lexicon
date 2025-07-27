@@ -14,10 +14,10 @@ export default class Markdown {
 	private parse(addHtmlBalises: boolean): string {
 		const replaces: [RegExp, string|((...args: any[]) => string)][] = [
 			// Text formatting
-			[/\*\*(.+?)\*\*/g, addHtmlBalises ? '<strong>$1</strong>' : '$1'], // Bold
-			[/__(.+?)__/g, addHtmlBalises ? '<u>$1</u>' : '$1'], // Underline
-			[/(?:_|\*)(.+?)(?:_|\*)/g, addHtmlBalises ? '<em>$1</em>' : '$1'], // Italic
-			[/~~(.+?)~~/g, addHtmlBalises ? '<del>$1</del>' : '$1'], // Strikethrough
+			[/(^|\W)\*\*(.+?)\*\*($|\W)/g, addHtmlBalises ? '$1<strong>$2</strong>$3' : '$1$2$3'], // Bold
+			[/(^|\W)__(.+?)__($|\W)/g, addHtmlBalises ? '$1<u>$2</u>$3' : '$1$2$3'], // Underline
+			[/(^|\W)(_|\*)(.+?)\2($|\W)/g, addHtmlBalises ? '$1<em>$3</em>$4' : '$1$3$4'], // Italic
+			[/(^|\W)~~(.+?)~~($|\W)/g, addHtmlBalises ? '$1<del>$2</del>$3' : '$1$2$3'], // Strikethrough
 			// Code
 			[/`{3}((?:.|\n)+?)`{3}/g, addHtmlBalises ? '<pre class="markdown">$1</pre>' : '$1'], // Code block
 			[/`(.+?)`/g, addHtmlBalises ? '<code class="markdown">$1</code>' : '$1'], // Inline code
