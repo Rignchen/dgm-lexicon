@@ -24,9 +24,9 @@ RUN pnpm build
 FROM base AS test
 RUN apk add --no-cache chromium
 ENV CHROME_BIN=/usr/bin/chromium
+COPY --from=dep /app/node_modules ./node_modules
 COPY karma.conf.js ./
 COPY --from=app-files /app .
-COPY --from=dep /app/node_modules ./node_modules
 RUN ["pnpm", "test", "--watch=false", "--browsers=ChromeHeadless"]
 RUN touch all-tests-passed
 
