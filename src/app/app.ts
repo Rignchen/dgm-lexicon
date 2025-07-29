@@ -10,6 +10,7 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
 	constructor(private meta: Meta) {
+		const size = 769;
 		this.meta.addTags([
 			{name: 'og:type', content: 'website'},
 			{name: 'og:url', content: 'https://rignchen.github.io/dgm-lexicon/'},
@@ -17,8 +18,8 @@ export class App {
 			{name: 'og:title', content: 'DGM Lexicon'},
 			{name: 'og:image', content: 'https://rignchen.github.io/dgm-lexicon/qr-code.png'},
 			{name: 'og:image:alt', content: 'QR Code vers le lexique DGM'},
-			{name: 'og:image:width', content: '600'},
-			{name: 'og:image:height', content: '600'},
+			{name: 'og:image:width', content: `${size}`},
+			{name: 'og:image:height', content: `${size}`},
 			{name: 'og:image:type', content: 'image/png'},
 		], true);
 	}
