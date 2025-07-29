@@ -7,7 +7,7 @@ import { Error404 } from '#pages/error-404';
 import { BackButton } from '#components/back-button';
 import { Tag } from '#components/tag';
 import { Bubble } from '#components/bubble';
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
 	selector: 'app-word',
@@ -20,7 +20,7 @@ export class Word implements OnInit {
 	private router = inject(Router);
 	public entry?: LexiconEntry;
 
-	constructor(private route: ActivatedRoute, private title: Title) {}
+	constructor(private route: ActivatedRoute, private title: Title, private meta: Meta) { }
 
 	ngOnInit() {
 		this.route.params.subscribe(params => {
@@ -30,6 +30,11 @@ export class Word implements OnInit {
 			if (filtered.length === 0) return Error404.redirect(this.router);
 			this.entry = filtered[0];
 			this.title.setTitle(this.entry!.word);
+			this.meta.updateTag({name: 'og:title', content: 'Word - ' + this.entry!.word});
+			const maxDescriptionLength = 200;
+			this.meta.updateTag({name: 'og:description', content: this.entry!.definition.toString().length > maxDescriptionLength ?
+				this.entry!.definition.toString().substring(0, maxDescriptionLength) + '...' :
+				this.entry!.definition.toString()});
 		});
 	}
 
