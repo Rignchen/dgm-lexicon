@@ -15,6 +15,7 @@ export class App {
 			{name: 'og:url', content: 'https://rignchen.github.io/dgm-lexicon/'},
 			{name: 'og:description', content: 'Un lexique des références et des termes utilisés par la communauté de devenirgamemaster'},
 			{name: 'og:title', content: 'DGM Lexicon'},
+			{name: 'og:image', content: 'https://rignchen.github.io/dgm-lexicon/qr-code.svg'},
 		], true);
 	}
 }
