@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Meta } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 
 @Component({
@@ -8,5 +9,12 @@ import { RouterOutlet } from '@angular/router';
 	styleUrl: './app.css'
 })
 export class App {
-	protected title = 'dgm-lexicon';
+	constructor(private meta: Meta) {
+		this.meta.addTags([
+			{name: 'og:type', content: 'website'},
+			{name: 'og:url', content: 'https://rignchen.github.io/dgm-lexicon/'},
+			{name: 'og:description', content: 'Un lexique des références et des termes utilisés par la communauté de devenirgamemaster'},
+			{name: 'og:title', content: 'DGM Lexicon'},
+		], true);
+	}
 }
