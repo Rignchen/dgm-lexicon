@@ -5,7 +5,7 @@ import { Word } from '#pages/word';
 import { Router } from '@angular/router';
 import { Bubble } from '#components/bubble';
 import Fuse from 'fuse.js';
-import { Title } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 
 @Component({
 	selector: 'app-home',
@@ -14,8 +14,14 @@ import { Title } from '@angular/platform-browser';
 	styleUrl: './home.css'
 })
 export class Home {
-	constructor(private title: Title) {
+	constructor(private title: Title, private meta: Meta) {
 		this.title.setTitle("DGM Lexicon");
+		this.meta.addTags([
+			{name: 'og:type', content: 'website'},
+			{name: 'og:url', content: 'https://rignchen.github.io/dgm-lexicon/'},
+			{name: 'og:description', content: 'A lexicon of terms used by the community of devenirgamemaster'},
+			{name: 'og:title', content: 'DGM Lexicon'},
+		], true);
 	}
 
 	private router = inject(Router);
