@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { Bubble } from '#components/bubble';
+import { Title } from '@angular/platform-browser';
 
 @Component({
 	selector: 'app-error-404',
@@ -9,7 +10,9 @@ import { Bubble } from '#components/bubble';
 	styleUrl: './error-404.css'
 })
 export class Error404 {
-	constructor(private router: Router) {}
+	constructor(private router: Router, private title: Title) {
+		this.title.setTitle("Page Not Found");
+	}
 
 	public goHome() {
 		this.router.navigate(['/']);

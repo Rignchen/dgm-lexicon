@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Error404 } from './error-404';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 describe('Error404', () => {
 	let component: Error404;
@@ -20,6 +21,11 @@ describe('Error404', () => {
 
 	it('should create', () => {
 		expect(component).toBeTruthy();
+	});
+
+	it('should set the title', () => {
+		const titleService = TestBed.inject(Title);
+		expect(titleService.getTitle()).toBe('Page Not Found');
 	});
 
 	it('home button should redirect to home', () => {

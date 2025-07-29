@@ -3,6 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Word } from './word';
 import { provideRouter } from '@angular/router';
 import { Error404 } from '#pages/error-404';
+import { Title } from '@angular/platform-browser';
 
 describe('Word', () => {
 	let component: Word;
@@ -22,6 +23,20 @@ describe('Word', () => {
 
 	it('should create', () => {
 		expect(component).toBeTruthy();
+	});
+
+	it('should set the title', () => {
+		const titleService = TestBed.inject(Title);
+		(component['route'].params as any).subscribe = (callback: (params: any) => void) => {
+			callback({ id: '6' });
+		};
+		component.ngOnInit();
+		expect(titleService.getTitle()).toBe('Potato');
+		(component['route'].params as any).subscribe = (callback: (params: any) => void) => {
+			callback({ id: '0' });
+		};
+		component.ngOnInit();
+		expect(titleService.getTitle()).toBe('Dé de Gaëlle');
 	});
 
 	describe('redirect to Error404', () => {

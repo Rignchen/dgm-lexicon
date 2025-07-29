@@ -7,6 +7,7 @@ import { Error404 } from '#pages/error-404';
 import { BackButton } from '#components/back-button';
 import { Tag } from '#components/tag';
 import { Bubble } from '#components/bubble';
+import { Title } from '@angular/platform-browser';
 
 @Component({
 	selector: 'app-word',
@@ -19,7 +20,7 @@ export class Word implements OnInit {
 	private router = inject(Router);
 	public entry?: LexiconEntry;
 
-	constructor(private route: ActivatedRoute) {}
+	constructor(private route: ActivatedRoute, private title: Title) {}
 
 	ngOnInit() {
 		this.route.params.subscribe(params => {
@@ -28,6 +29,7 @@ export class Word implements OnInit {
 			const filtered = this.data.lexicon.filter(entry => entry.id === parseInt(id, 10));
 			if (filtered.length === 0) return Error404.redirect(this.router);
 			this.entry = filtered[0];
+			this.title.setTitle(this.entry!.word);
 		});
 	}
 

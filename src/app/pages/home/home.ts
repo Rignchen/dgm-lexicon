@@ -5,6 +5,7 @@ import { Word } from '#pages/word';
 import { Router } from '@angular/router';
 import { Bubble } from '#components/bubble';
 import Fuse from 'fuse.js';
+import { Title } from '@angular/platform-browser';
 
 @Component({
 	selector: 'app-home',
@@ -13,8 +14,11 @@ import Fuse from 'fuse.js';
 	styleUrl: './home.css'
 })
 export class Home {
-	private router = inject(Router);
+	constructor(private title: Title) {
+		this.title.setTitle("DGM Lexicon");
+	}
 
+	private router = inject(Router);
 	private data = inject(Data);
 	private fuse = new Fuse(this.data.lexicon, {keys: ['word', 'definition']});
 	public filteredData = this.data.lexicon;

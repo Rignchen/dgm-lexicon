@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Home } from './home';
 import { Word } from '#pages/word';
+import { Title } from '@angular/platform-browser';
 
 describe('Home', () => {
 	let component: Home;
@@ -20,6 +21,11 @@ describe('Home', () => {
 
 	it('should create', () => {
 		expect(component).toBeTruthy();
+	});
+
+	it('should set the title', () => {
+		const titleService = TestBed.inject(Title);
+		expect(titleService.getTitle()).toBe('DGM Lexicon');
 	});
 
 	it('should return all lexicon entries when no search term is provided', () => {
