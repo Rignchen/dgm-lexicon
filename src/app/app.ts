@@ -21,6 +21,7 @@ export class App {
 			{name: 'og:image:width', content: `${size}`},
 			{name: 'og:image:height', content: `${size}`},
 			{name: 'og:image:type', content: 'image/png'},
+			{name: 'twitter:card', content: 'summary_large_image'},
 		], true);
 	}
 }
