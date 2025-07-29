@@ -12,7 +12,7 @@ export default class Markdown {
 	}
 
 	private parse(addHtmlBalises: boolean): string {
-		const replaces: [RegExp, string|((...args: any[]) => string)][] = [
+		const replaces: [RegExp, string|((...args: string[]) => string)][] = [
 			// Text formatting
 			[/(^|\W)\*\*(.+?)\*\*($|\W)/g, addHtmlBalises ? '$1<strong>$2</strong>$3' : '$1$2$3'], // Bold
 			[/(^|\W)__(.+?)__($|\W)/g, addHtmlBalises ? '$1<u>$2</u>$3' : '$1$2$3'], // Underline
