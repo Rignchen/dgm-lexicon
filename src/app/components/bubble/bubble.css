@@ -1,4 +1,6 @@
 div {
 	border: 2px solid black;
 	border-radius: 20px;
+	color: var(--text-color);
+	background: var(--background-color);
 }

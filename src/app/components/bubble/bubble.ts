@@ -7,6 +7,6 @@ import { Component, Input } from '@angular/core';
 	styleUrl: './bubble.css'
 })
 export class Bubble {
-	@Input() color: string = 'black';
-	@Input() background: string = 'white'
+	@Input() color: string = '';
+	@Input() background: string = ''
 }

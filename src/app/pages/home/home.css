@@ -27,6 +27,8 @@ input {
 	font-size: 1rem;
 	padding: 0.5rem 1rem;
 	width: calc(100% - 2rem);
+
+	color: var(--gray-text);
 }
 input:focus {
 	outline: none;
@@ -36,7 +38,7 @@ input:focus {
 	padding: 0rem 0.5rem;
 }
 .found-count span {
-	color: red;
+	color: var(--found-expression-color);
 }
 
 .cards {
