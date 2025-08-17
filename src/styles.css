@@ -11,6 +11,14 @@
 
 	@media (prefers-color-scheme: dark) {
 		/* Dark Theme Overrides */
+		---gradient-start: #1F2937;
+		---gradient-end: #374151;
+		--gray-text: #A1A1AA;
+		--text-color: #F4F4F5;
+		--markdown-highlight: #374151;
+		--markdown-background: #1F2937;
+		--background-color: #111827;
+		--found-expression-color: #EF4444;
 	}
 }
 
