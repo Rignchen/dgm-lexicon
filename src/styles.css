@@ -8,6 +8,7 @@
 	--background-color: #FFFFFF;
 	--home-button-gradient: linear-gradient(90deg, #E64296, #F79C00);
 	--found-expression-color: red;
+	--link-color: blue;
 
 	@media (prefers-color-scheme: dark) {
 		/* Dark Theme Overrides */
@@ -19,6 +20,7 @@
 		--markdown-background: #1F2937;
 		--background-color: #111827;
 		--found-expression-color: #EF4444;
+		--link-color: darkturquoise;
 	}
 }
 
@@ -31,6 +33,10 @@ html, body { height: 99%; }
 body {
 	background: var(--gradient);
 	color: var(--text-color);
+}
+
+a {
+	color: var(--link-color);
 }
 
 code.markdown {
