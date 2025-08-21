@@ -21,7 +21,7 @@ RUN rm public/db.csv && mv public/db-prod.csv public/db.csv
 RUN pnpm build
 
 # Test stage
-FROM base AS test
+FROM base AS test-nx
 RUN apk add --no-cache chromium
 ENV CHROME_BIN=/usr/bin/chromium
 COPY --from=dep /app/node_modules ./node_modules
@@ -29,6 +29,18 @@ COPY karma.conf.js ./
 COPY --from=app-files /app .
 RUN ["pnpm", "test", "--watch=false", "--browsers=ChromeHeadless"]
 RUN touch all-tests-passed
+
+FROM base AS test-csv
+RUN apk add --no-cache python3
+COPY test-db.py ./
+COPY --from=app-files /app/public ./public
+RUN python3 test-db.py
+RUN touch all-tests-passed
+
+# Combine test results
+FROM base AS test
+COPY --from=test-nx /app/all-tests-passed /app/all-tests-passed
+COPY --from=test-csv /app/all-tests-passed /app/all-tests-passed
 
 # Production stage
 FROM base AS prod
