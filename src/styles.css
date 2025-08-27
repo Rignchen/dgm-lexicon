@@ -39,20 +39,23 @@ a {
 	color: var(--link-color);
 }
 
-code.markdown {
+.markdown code {
 	font-family: monospace;
 	font-size: 1.2em;
 	background-color: var(--markdown-highlight);
 }
-pre.markdown {
+.markdown pre {
 	font-family: monospace;
 	font-size: 1.2em;
 	background-color: var(--markdown-highlight);
 	padding: 10px;
 	overflow-x: auto;
 }
-blockquote.markdown {
+.markdown blockquote {
 	border-left: 5px solid var(--markdown-highlight);
 	padding-left: 10px;
 	margin-left: 10px;
+}
+.markdown img {
+	max-width: 100%;
 }

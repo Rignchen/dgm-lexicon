@@ -14,8 +14,11 @@ id,word,definition,first_time_used,tags
 4,Plan Foireux,"Stratégie qui ne fonctionne jamais comme prévu, souvent utilisée pour ajouter du suspense.",2023-05-10,stratégie
 5,Rage du MJ,"Moment où le maître de jeu perd patience face aux actions des joueurs, souvent suivi de conséquences dramatiques.",2023-05-10,mj
 6,Potato,"# Toto
-Lorem ipsum **dolor sit amet**, _consectetur adipiscing_ __elit__. `Sed do eiusmod` tempor incididunt ""ut"" ```labore et
-dolore magna aliqua```
+Lorem ipsum **dolor sit amet**, _consectetur adipiscing_ __elit__. `Sed do eiusmod` tempor incididunt ""ut"" :þ
+```md
+labore et
+dolore magna aliqua
+```
 - Ut enim ad minim veniam
 - quis nostrud exercitation
 - ullamco laboris nisi ut aliquip
@@ -23,6 +26,8 @@ dolore magna aliqua```
 1. Duis aute irure dolor
 2. in [reprehenderit](https://fr.wikipedia.org/wiki/Conventions_de_Gen%C3%A8ve) in voluptate
 3. velit esse cillum dolore
+- [ ] TODO
+- [x] DONE
 eu [fugiat](/words/1) nulla pariatur. Excepteur sint ~~occaecat~~ cupidatat non proident, sunt in
 > culpa qui officia deserunt mollit anim id est laborum.
 ![Image](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.pexels.com%2Fphotos%2F443446%2Fpexels-photo-443446.jpeg%3Fcs%3Dsrgb%26dl%3Ddaylight-forest-glossy-443446.jpg%26fm%3Djpg&f=1&nofb=1&ipt=1e773a431d0c584169ccd322e9b2edd76ca3edae072921dc0a3d17762452f925)",2025-05-10,"malchance,objets,combat,roleplay,stratégie,mj,malchance,objets,combat,roleplay,stratégie,mj"
