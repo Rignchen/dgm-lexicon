@@ -1,4 +1,5 @@
 import markdownit from 'markdown-it';
+import markdownItUnderline from 'markdown-it-underline';
 
 export default class Markdown {
 	constructor(private text: string) { }
@@ -7,7 +8,7 @@ export default class Markdown {
 		linkify: true,
 		typographer: true,
 		breaks: true,
-	});
+	}).use(markdownItUnderline);
 
 	toHtml(): string {
 		return this.md.render(this.text)
