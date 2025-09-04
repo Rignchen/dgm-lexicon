@@ -94,7 +94,7 @@ describe('Markdown', () => {
 			const input = new Markdown('- [ ] Unchecked item');
 			it('should convert to HTML', () => {
 				const result = input.toHtml();
-				expect(result).toBe('<ul>\n<li><input type="checkbox" disabled>Unchecked item</li>\n</ul>\n');
+				expect(result).toBe('<ul class="contains-task-list">\n<li class="task-list-item"><input class="task-list-item-checkbox" disabled="" type="checkbox"> Unchecked item</li>\n</ul>\n');
 			});
 			it('should convert to plain text', () => {
 				const result = input.toString();
@@ -106,7 +106,7 @@ describe('Markdown', () => {
 			const input = new Markdown('- [X] Checked item');
 			it('should convert to HTML', () => {
 				const result = input.toHtml();
-				expect(result).toBe('<ul>\n<li><input type="checkbox" checked disabled>Checked item</li>\n</ul>\n');
+				expect(result).toBe('<ul class="contains-task-list">\n<li class="task-list-item"><input class="task-list-item-checkbox" checked="" disabled="" type="checkbox"> Checked item</li>\n</ul>\n');
 			});
 			it('should convert to plain text', () => {
 				const result = input.toString();
