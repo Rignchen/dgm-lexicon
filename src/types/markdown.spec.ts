@@ -79,7 +79,7 @@ describe('Markdown', () => {
 				const input = new Markdown(`${'#'.repeat(i)} Heading ${i}`);
 				it('should convert to HTML', () => {
 					const result = input.toHtml();
-					expect(result).toBe(`<h${i}>Heading ${i}</h${i}>\n`);
+					expect(result).toBe(`<h${i} id="heading-${i}">Heading ${i}</h${i}>\n`);
 				});
 				it('should convert to plain text', () => {
 					const result = input.toString();
