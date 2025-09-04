@@ -2,6 +2,7 @@ import markdownit from 'markdown-it';
 import markdownItUnderline from 'markdown-it-underline';
 import markdownItAnchor from 'markdown-it-anchor';
 import markdownItTaskLists from 'markdown-it-task-lists';
+import { full as markdownItEmoji } from 'markdown-it-emoji';
 
 export default class Markdown {
 	constructor(private text: string) { }
@@ -15,7 +16,10 @@ export default class Markdown {
 	.use(markdownItAnchor, {
 		tabIndex: false
 	})
-	.use(markdownItTaskLists);
+	.use(markdownItTaskLists)
+	.use(markdownItEmoji, {
+		shortcuts: {},
+	});
 
 	toHtml(): string {
 		return this.md.render(this.text);

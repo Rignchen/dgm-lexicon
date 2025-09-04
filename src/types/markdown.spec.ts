@@ -188,4 +188,26 @@ describe('Markdown', () => {
 			expect(result).toBe('This is a line\nbreak');
 		});
 	});
+
+	describe('emojis', () => {
+		const input = new Markdown('Hello from mars :satellite:');
+		it('should convert to HTML', () => {
+			const result = input.toHtml();
+			expect(result).toBe('<p>Hello from mars 📡</p>\n');
+		});
+		it('should convert to plain text', () => {
+			const result = input.toString();
+			expect(result).toBe('Hello from mars 📡');
+		});
+		it('should not convert unknown emojis', () => {
+			const input = new Markdown('Hello from mars :unknown_emoji:');
+			const result = input.toHtml();
+			expect(result).toBe('<p>Hello from mars :unknown_emoji:</p>\n');
+		});
+		it('should NOT use shortcuts for emojis', () => {
+			const input = new Markdown('This is a smiley :)');
+			const result = input.toHtml();
+			expect(result).toBe('<p>This is a smiley :)</p>\n');
+		});
+	});
 });
