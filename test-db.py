@@ -32,7 +32,7 @@ def read_csv(file_path: str) -> list[list[dict]]:
 	with open(file_path, 'r') as file:
 		# remove leading/trailing whitespace
 		content = '\n'.join(sub(r'[\s,]+$', '', line) for line in file.readlines())
-		csvs = content.split('\n\n')
+		csvs = content.split('\n\n',1)
 		return [list(csv2dict(csv.splitlines())) for csv in csvs if csv.strip()]
 
 def validate_json_structure(data, structure, json: dict|None = None) -> list[str|int]:
