@@ -34,7 +34,7 @@ FROM base AS test-csv
 RUN apk add --no-cache python3
 COPY test-db.py ./
 COPY --from=app-files /app/public ./public
-RUN python3 test-db.py
+RUN python3 test-db.py public/db.csv public/db-prod.csv
 RUN touch all-tests-passed
 
 # Combine test results

@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: '3.13'
       - name: Run test.py
-        run: python test-db.py
+        run: python test-db.py public/db.csv public/db-prod.csv
       # Deploy production
       - name: Change test-db to production-db
         run: |

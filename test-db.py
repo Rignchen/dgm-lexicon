@@ -1,4 +1,6 @@
 #!/usr/bin/env python3
+from sys import argv
+argv.pop(0)
 
 def regex(pattern: str, string: str) -> bool:
 	return match(pattern, string) is not None
@@ -96,8 +98,9 @@ def validate_csv_file_structure(file_path: str, structure: tuple) -> bool:
 	return len(error) != 0
 
 def main():
-	error = validate_csv_file_structure("public/db.csv", structure)
-	error = validate_csv_file_structure("public/db-prod.csv", structure) or error
+	error = False
+	for i in argv:
+		error = validate_csv_file_structure(i, structure) or error
 	if error: exit(1)
 
 if __name__ == "__main__":
