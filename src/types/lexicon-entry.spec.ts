@@ -77,4 +77,25 @@ here",2023-10-02,"tag1"
 			["2", "word2", "definition2 with a quote \" inside", "2023-09-30", "tag0,tag1"],
 		]);
 	});
+
+	it("should handle empty lines in CSV data", () => {
+		const csvData = `tag,color,,,
+tag0,#ff0000,,,
+tag1,#00ff00,,,
+,,,,
+id,word,definition,first_time_used,tags
+0,word0,"definition
+
+0",2023-10-01,"tag0"
+1,word1,definition1,2023-10-02,"tag1"`;
+		const fromDataSpy = spyOn(LexiconEntry, "fromCsvData");
+		LexiconEntry.parseFromCsv(csvData);
+		expect(fromDataSpy).toHaveBeenCalledWith([
+			["tag0", "#ff0000"],
+			["tag1", "#00ff00"],
+		], [
+			["0", "word0", "definition\n\n0", "2023-10-01", "tag0"],
+			["1", "word1", "definition1", "2023-10-02", "tag1"],
+		]);
+	});
 });

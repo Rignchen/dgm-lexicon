@@ -58,7 +58,9 @@ export default class LexiconEntry {
 
 		// Split between tags and lexicon entries
 		const emptyLineRegex = /\n?^(?:\s|,)*$\n?/m;
-		const tagsAndEntriesCsv = data.split(emptyLineRegex).map(line => line.trim()).filter(line => line.length > 0);
+		const emptyLineMatch = data.match(emptyLineRegex)!;
+		const emptyLineIndex = emptyLineMatch.index!;
+		const tagsAndEntriesCsv = [data.slice(0, emptyLineIndex), data.slice(emptyLineIndex + emptyLineMatch[0].length)].map(line => line.trim()).filter(line => line.length > 0);
 
 		// Split lines of the csv, taking care of trailing commas
 		const tagAndEntriesLines: string[][] = [];
