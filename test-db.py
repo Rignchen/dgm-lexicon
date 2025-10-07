@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
 from sys import argv
 argv.pop(0)
-
-def regex(pattern: str, string: str) -> bool:
-	return match(pattern, string) is not None
+from re import compile as regex
 
 structure = (
 	list,
@@ -11,15 +9,15 @@ structure = (
 	lambda x, _: validate_json_structure(x[0],[
 		{
 			"tag": (str, len),
-			"color": (str, lambda x, _: [] if regex(r'^#[0-9A-F]{6}$', x) else [f"Invalid color format: {repr(x)} must be in the format #RRGGBB"]),
+			"color": (str, regex(r'^#[0-9a-fA-F]{6}$')),
 		}
 	], x),
 	lambda x, _: validate_json_structure(x[1], [
 		{
-			"id": (str, lambda x, _: [] if regex(r'^\d+$', x) else [f"ID must be a positive integer, got {repr(x)}"]),
+			"id": (str, regex(r'^\d+$')),
 			"word": (str, len),
 			"definition": (str, len),
-			"first_time_used": (str, lambda x, _: [] if regex(r'^\d{4}-\d{2}-\d{2}$', x) else [f"Invalid date format: {repr(x)} must be YYYY-MM-DD"]),
+			"first_time_used": (str, regex(r'^\d{4}-\d{2}-\d{2}$')),
 			"tags": (str, lambda x, y: [] if all(i in map(lambda t: t['tag'], y[0]) for i in x.split(",")) else [f"Tag '{x}' not found in tags"]),
 		}
 	], x)
@@ -70,6 +68,9 @@ def validate_json_structure(data, structure, json: dict|None = None) -> list[str
 			# check isinstance(data, structure)
 			if not isinstance(data, structure):
 				return [f"Expected type {structure.__name__}, got {type(data).__name__}"]
+		case 'Pattern':
+			# check structure(data)
+			return [] if structure.match(data) else [f"String '{data}' does not match pattern {structure.pattern}"]
 		case 'function':
 			# check structure(data, json)
 			error = structure(data, json)
