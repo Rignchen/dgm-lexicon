@@ -1,0 +1,65 @@
+tag,color,,,
+help,#33FF57,,,
+animal,#FF5733,,,
+jdr mardi,#3357FF,,,
+other,#FF33A1,,,
+argh,#FFCF33,,,
+,,,,
+id,word,definition,first_time_used,tags
+0,Carte X,Action utilisée en jeu de rôle pour signaler au MJ que l'on est inconfortable avec ce que le MJ vient de dire et que l'on souhaite qu'iel change ce qu'iel vient de dire,2023-05-10,help
+1,Lueur d'espoir,"Action utilisée en jeu de rôle pour signaler au MJ que l'on est dans une situation compliquée et que l'on aimerait que le MJ change la session prévue pour une session légère, joyeuse et sans enjeu",2023-05-10,help
+2,Dégage,"[Perroquet Dracula](https://fr.wikipedia.org/wiki/Psittrichas_de_Pesquet) obtenu lors d’une session de jeu de rôle par [Poulet Rayonnant](words/6) après utilisation d'une [_lueur d'espoir_](words/1)
+Les perroquets draculas sont frutivore et Dégage adore les figues, c’est pourquoi il a un sac remplis de figues
+[![Dégage](/assets/Degage.jpg)](https://discord.com/channels/1207648183178760262/1207661343096971284/1377039066037489704)",2023-05-10,"animal,jdr mardi"
+3, Délicatesse,"Outil récupéré lors d’une session de jeu de rôle, utilisé comme arme violente dù à ses lames rotatives. Les viewers ont réussi a marchander un +2 dégâts garanti en échange d'un -2 en capacité de combat quand on tient l'arme
+![Délicatesse](/assets/Delicatesse.jpeg)",2023-05-10,jdr mardi
+4,Foulcamp,"Tout premier animal de compagnie obtenu lors d’une session de jeu de rôle par [Loup Solitaire](words/7), c'est un [Loup](https://fr.wikipedia.org/wiki/Canis_lupusé) qu'on a eu grâce au contrôle mental.
+à un moment on a été séparé de lui et de [Kastoi](words/5) Foulcamp a été le dernier à nous retrouver, cepandant Naar l'avait manipulé pour le retourner contre nous en lui disant qu'on l'avait abandonné et que l'on ne l'aimait pas vraiment car on lui avait fait du contrôle mental et qu'en gros on le forçait, alors qu'on a eu une longue dans son esprit pour le récupérer. On a finalement réussi en lui mettant le pouvoir confié par la [st lopez](words/10) en lui et au même moment crée une giga entité divine qui agit a son bon vouloir, mais commence peu à peu à revenir du côté de la lumière",2023-05-10,"animal,jdr mardi"
+5,Kastoi,"Deuxième animal de compagnie obtenu lors d’une session de jeu de rôle par [Loup Solitaire](words/7), c'est un [Lynx](https://fr.wikipedia.org/wiki/Lynx)
+à un moment on a été séparé de lui et de [Foulcamp](words/4) Kastoi a été le premier à nous retrouver, cepandant il était très malade et aucun remède n'a été trouvé.",2023-05-10,"animal,jdr mardi"
+6,Poulet rayonnant,"Nom du personnage des jdr des lives du mardi soir, c'est le diciple de [Loup Solitaire](words/7)
+Il s'agit d'un chevalier de la lumière, il ne peut donc pas enfraindre l'entièreté de la [convention de genève](https://fr.wikipedia.org/wiki/Conventions_de_Gen%C3%A8ve)
+Poulet rayonnant a perdu un membre lors d'une session de jeu de rôle qui lui réduisent ses capacités de combat",2023-05-10,jdr mardi
+7,Loup Solitaire,"Personnage des jdr des lives du mardi soir qui a fini son aventure, il est donc devenu un PNJ
+Il s'agit d'un chevalier de la lumière, il ne peut donc pas enfraindre l'entièreté de la [convention de genève](https://fr.wikipedia.org/wiki/To-do_list)
+Loup Solitaire a perdu une jambe lors d'une session de jeu de rôle",2023-05-10,jdr mardi
+8,Le Savon Merlin,"Pour son JDR sur [Immortal Goblins](https://devenirmaitredujeu.podia.com/immortal-goblins-systeme), Julien a crée un PNJ nommé Merlin et qui fabrique du savon, il a tellement tout netoyé avec qu'une armée de goblins venu l'attaquer a été vaincu juste en glissant sur le savon",2023-05-10,other
+9,Chevalier Kai rat,Autre nom de [Loup Solitaire](words/7),2023-05-10,jdr mardi
+10,Kronk,Autre nom de [Loup Solitaire](words/7),2023-05-10,jdr mardi
+11,Prarg,"PNJ dans la saison 1 avec [Loup Solitaire](words/7), il faisait que fuir, giga trouillard, giga chiant, mais faisait croire qu il était fort (on a fini par le dégradé)",2023-05-10,jdr mardi
+12,Armure en Ananas,"Apparement il serait possible de mettre une bille de fer a 1000°C sur une peau d'ananas sans que ça brule.
+Partant de ce principe on s'est dit que avant un combat contre un dragon, plutôt que d'acheter une armur en métaux enchantés pour résister aux flammes, ça coutait moins cher d'acheter beaucoup d'ananas et faire une armure avec leur peau.",2023-05-10,other
+13,Les buissons (nos ennemis),[Une fois](https://vm.tiktok.com/ZNduraRtq/) on a décidé de se cacher dans un buisson pour éviter un combat pendant que nos potes sont allés se battre. Le fait de se cacher dans le buisson nous a assommé.,2023-05-10,jdr mardi
+14,Les démons Bretons,"En partant du principe que à ta mort ce en quoi tu crois c'est ce qui t'attend, [il existerait un monde](https://www.instagram.com/reel/DMqBE2CN_Dz/) où
+- Un gros méchant meurttrier qui est persuadé que ce qu'il fait est bien finit au Paradis
+- Un prêtre qui a passé sa vie à prier et a aider les gens et a la fin de sa vie il craque il mange un beignet, péché de gourmandise, et finit en enfer
+Du coup ensuite dans une campagne on pourrait avoir les joueurs qui vont en enfer et y voient un prètre qui se fait torturer avec un goblin qui mets lui mets du sirop d'êrable sur une crêpe en disant ""miam miam c'est 50 ans de damnation en plus ça"" avec le prêtre qui pleure ""non pas le sirop d'érable""
+On s’est ensuite demandé si les Bretons étaient des démons qui se sont fait passés pour des humains et envoient les gens en enfer avec des péchés de gourmandise parce qu’ils font des trucs trop bon",2025-07-26,other
+15,L'épée Tutoriel,"[![](/assets/Epee_Tutoriel.jpg)](https://discord.com/channels/1207648183178760262/1207661343096971284/1402751710451073155)
+L'épée Tutoriel est une arme imaginée par Julien, il s'agit d'une épée qui fait très mal mais qui quand tu la vois tu comprends instantanément que la personne qui la tient est un débutant.
+- L'épée a une flèche qui la fait pointer vers l'enemi afin de ne pas manquer sa cible
+- L'épée a des petites roulettes stabilisantes
+- La garde de l'épée est une bouée gonflée
+- La poignée est antidérapante
+- Des pointillés apparaissent autour de la poignée pour indiquer où mettre la main
+- La lame de l'épée s'émousse si son utilisateur la touche afin de ne pas le blesser
+- Il y a un porte-compote
+- Il y a une étiquette nominative avec le nom de l'utilisateur qui change tout seul au changement d'utilisateur
+- Il y a une étiquette ""objet tranchant"" sur la lame
+- Il y a des scratchs pour attacher l'épée à la main
+- L'épée a 2 vois, une qui dit ""Je crois en toi"" et une qui dit ""Tu es faible""",2025-08-06,other
+16,Poulverine,"Arme de lumière de [Poulet Rayonnant](words/6)
+[![Poulverine](/assets/Poulverine.jpg)](https://discord.com/channels/1207648183178760262/1207661343096971284/1359881406930616400)",2023-05-10,jdr mardi
+17,Les lunettes,"Julien garde toujours ses lunettes sur son néz lors des lives, lorsqu'il les enlève c'est généralement qu'il est en train de faire une improvisation
+Ces moments d'improvisation sont souvent des moments très intense en émotion",2023-05-10,"other,jdr mardi"
+18,Princesse,"Vieux chien de garde en fin de vie et à moitié sourd et aveugle trouvé par [Poulet Rayonnant](words/6) lors d'une session de jeu de rôle
+Il était entrain de garder la porte d'entrée, d'un bâtiment ennemi, il allait nous attaquer lorsque [Dégage](words/2) a lâché un _""C'est qui le bon chien chien ?""_ suite à quoi il s'est calmé
+Poulet Rayonnant a attrapé la balle rebondissante de Princesse et l'a lancé, Princesse a couru après. Pendant ce temps, Poulet Rayonnant en a profité pour rentrer dans le bâtiment ennemi.
+Beaucoup plus tard, Princesse a retrouvé Poulet Rayonnant, la balle dans la gueule.
+Poulet Rayonnant lui a alors transmis par la pensée ce qu'il voyait, Princesse à la vue d'une horde d'ennemis a accidentellement lâché la balle au milieu des ennemis, ceux-ci, persuadés que Poulet Rayonnant leur avait envoyé un objet dangereux, ont décidé d'attaquer la balle.
+À la vue de sa balle criblée de fleches, Princesse s'est mis en colère et a grogné. Poulet Rayonnant a alors utilisé ses pouvoirs pour amplifier le grognement de Princesse, passant alors du bruit d'un vieux chien à un rugissement de bête féroce.
+Les ennemis, persuadés que Poulet Rayonnant avait dompté une bête aussi dangereuse que [Foulcamp](words/4) ou [Kastoi](words/5), ont décidé de fuir.",2025-07-15,"animal,jdr mardi"
+19,l'ARGH,"l'argh est un rassemblement de personne qui créé et goute des breuvage douteux, argh est un acronyme qui est tiré du son que l'ont fait en goutant une de leurs boissons. "" l'argh "" a un sens, seulement il est souvnent oublié alors il change constament (il finit généralement par gouteur hypotétique). Les membres de l'argh ce rassemble pour une reunion mensuelle tout les 2 mercredi du mois dans la cave de la taverne infernale et ont a ce jours créé deux boisson, [le tonneaux d'ours liquide](words/20) et [le rhum de galions](words/21)",2025-08-13,argh
+20,le tonneaux d'ours liquide,"premiére créations de [L'ARGH](words/19). Cela a commencé par une personne qui a écrit dans la guilde ""i want a barreal of bear"", bear voulant dire ours, au lieux de ""beer"", voulant dire biére. De ce point la un question c'est posé puis a dégénéré : peut on rendre un ours liquide et le mettre dans un tonneaux  ? Ils ce trouvent que dans le monde de donjons et dragons, oui, c'est techniquement possible. Pour ce faire vous aurez besoins, d'un tonneaux, d'un druide et d'avoir l'estomac solide. Ils faudra commencé par le druide qui ce transforme en ours avent d'utilisé le sort ""forme gazeuse) puis de rentré dans un tonneaux, suite a quoi il faudra que ses camarade le fasse condensé pour qu'il passe a l'état liquide. Et si vous voulez vous pouvez demandé au druide de boir le contenu du tonneaux pour donner des ptsd a tout le groupe",2025-09-07,argh
+21,le rhum de galions,"deuxième créations de [L'ARGH](words/19). Suite a un rappelle d'un des modérateurs de bien s'hydrater et de boir un galion si possible alors une questions c'est posé : peut on boir un galions ? Il vous suffira d'avoir une [Dame-jeanne](https://fr.wikipedia.org/wiki/Dame-jeanne), du rhum, ainsi que de savoir faire de la magie noir. Remplisser votre dame-jeanne de rhum au 3/4 avent de rassemblé des morceaux d'un bateaux fantome ainsi que quelques ame mineur, de faire une incantation pour créé un galions phamtone (du méme genre que ceux que l'on trouve dans des bouteille) et le faire rentré dans la dame-jeanne. a partir de ce moment le galion famtome vas commencé a infusé le thum et le faire embré tout en le gardant au frais grace aux ame. Vous pourez estimé le degré de votre brevage a la façon dont le galion flotte, mieux il flotte, plus le rhum a un degré d'alcool élevé. Si le degré d'alcool est assé élevé alors le galion ne flottera plus sur le rhum mais directement sur les vapeur d'alcool et fera légérement lévité le batiment. (l'abus d'alcool est dangereux, a consomé a modérations, sauf si vous faites partie de l'ARGH)",2025-08-13,argh
+22,"les albinos, des victimes","Dans un live de JDR, il y avait un personnage albinos, pour une raison inconnue le chat s'est mis a victimiser l'albinos et à chaque fois qu'on croisait quelqu'un on disait ""C'est un albinos, on le tappe"" sans aucune raison logique.",2025-09-05,other
