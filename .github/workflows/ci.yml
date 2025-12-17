@@ -26,11 +26,21 @@ jobs:
         run: |
           rm public/db.csv
           mv public/db-prod.csv public/db.csv
-      - name: All things angular
-        uses: AhsanAyaz/angular-deploy-gh-pages-actions@2272ef32f364bc80d8680ee03d8e58f126156c31
+      # Build angular
+      - name: Install dependencies
+        run: |
+          npm install -g pnpm
+          pnpm install --frozen-lockfile
+      - name: Build project
+        run: |
+          pnpm build --configuration=production --base-href=/dgm-lexicon/
+          cp dist/dgm-lexicon/browser/index.html dist/dgm-lexicon/browser/404.html
+      # Deploy on gh-pages branch
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          github_access_token: ${{ secrets.GITHUB_TOKEN }}
-          build_configuration: production
-          base_href: /dgm-lexicon/
-          deploy_branch: gh-pages
-          angular_dist_build_folder: dist/dgm-lexicon/browser
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/dgm-lexicon/browser
+          publish_branch: gh-pages
+          user_name: github-actions[bot]
+          user_email: github-actions[bot]@users.noreply.github.com
