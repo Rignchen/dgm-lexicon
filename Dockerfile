@@ -18,7 +18,7 @@ RUN pnpm install --frozen-lockfile
 FROM app-files AS builder
 COPY --from=dep /app/node_modules ./node_modules
 RUN mv -f public/db-prod.csv public/db.csv
-RUN pnpm build
+RUN pnpm build --configuration=production
 
 # Test stage
 FROM base AS test-nx
