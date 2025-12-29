@@ -26,6 +26,9 @@ jobs:
         run: |
           rm public/db.csv
           mv public/db-prod.csv public/db.csv
+      - name: replace image links
+        run: |
+          sed -i 's|!\(\[[^]]*\]\)(/assets/\([^)]*\))|!\1(/dgm-lexicon/assets/\2)|g' public/db.csv
       # Build angular
       - name: Install dependencies
         run: |
