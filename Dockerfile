@@ -49,5 +49,6 @@ COPY --from=test /app/all-tests-passed /app/all-tests-passed
 RUN rm /app/all-tests-passed
 # Copy built application from builder stage
 COPY --from=builder /app/dist/dgm-lexicon/browser .
+RUN cp index.html 404.html
 EXPOSE 8080
 ENTRYPOINT ["npx", "http-server"]
