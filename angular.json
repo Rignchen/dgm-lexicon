@@ -3,7 +3,7 @@
 	"version": 1,
 	"newProjectRoot": "projects",
 	"projects": {
-		"dgm-lexicon": {
+		"dmj-lexicon": {
 			"projectType": "application",
 			"schematics": {},
 			"root": "",
@@ -64,10 +64,10 @@
 					"builder": "@angular/build:dev-server",
 					"configurations": {
 						"production": {
-							"buildTarget": "dgm-lexicon:build:production"
+							"buildTarget": "dmj-lexicon:build:production"
 						},
 						"development": {
-							"buildTarget": "dgm-lexicon:build:development"
+							"buildTarget": "dmj-lexicon:build:development"
 						}
 					},
 					"defaultConfiguration": "development"

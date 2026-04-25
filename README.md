@@ -1,10 +1,10 @@
-# dgm-lexicon
+# dmj-lexicon
 
-DevenirGameMaster is a french tabletop rpg content creator.
+DevenirMaitreDuJeu is a french tabletop rpg content creator.
 With his community he has multiple inside jokes, memes and references that are unknown by people outside of the community.
 This situation leads to him having to explain these jokes to people he meets which can get a bit annoying.
 
-dgm-lexicon is a website created so that people can look up these jokes and references and understand them without having to ask.
+dmj-lexicon is a website created so that people can look up these jokes and references and understand them without having to ask.
 
 # Add entries
 If you want to contribute to the project, the easiest way is to send me a message on [discord](https://discord.com/channels/1207648183178760262/1391567892734021702) with
@@ -13,7 +13,7 @@ If you want to contribute to the project, the easiest way is to send me a messag
 - the date when the entry first appeared
 - the tags associated with the entry
 
-If you prefer to do it yourself, you can get the file `db.csv` under [`db.csv`](https://rignchen.github.io/dgm-lexicon/db.csv) or in the repository under [`publics/db-prod.csv`](https://github.com/Rignchen/dgm-lexicon/blob/main/public/db-prod.csv).\
+If you prefer to do it yourself, you can get the file `db.csv` under [`db.csv`](https://rignchen.github.io/dmj-lexicon/db.csv) or in the repository under [`publics/db-prod.csv`](https://github.com/Rignchen/dmj-lexicon/blob/main/public/db-prod.csv).\
 Once you have the file, the easiest way to edit it is to use a spreadsheet software like [LibreOffice Calc](https://www.libreoffice.org/download/download-libreoffice/) or [Microsoft Excel](https://www.microsoft.com/en-us/microsoft-365/excel).\
 In the spreadsheet, add a new row at the bottom of it with the following columns:
 
@@ -40,18 +40,18 @@ Once your modifications are done, do not export it back to csv as Excel will rep
 
 # Installation
 ## Just use it
-If you just want to visit the website without installing anything, it is available at [https://rignchen.github.io/dgm-lexicon/](https://rignchen.github.io/dgm-lexicon/).
+If you just want to visit the website without installing anything, it is available at [https://rignchen.github.io/dmj-lexicon/](https://rignchen.github.io/dmj-lexicon/).
 
 ## Manual Installation
 1. Dependencies
-To install dgm-lexicon, you need to have [Node.js](https://nodejs.org/) installed on your computer.\
+To install dmj-lexicon, you need to have [Node.js](https://nodejs.org/) installed on your computer.\
 I also recommend using [pnpm](https://pnpm.io/) as a package manager there's no lockfile for other package managers in this project.
 ```bash
 npm install -g pnpm
 ```
 
 2. Get the files
-Once you have installed the dependencies, you can [download the files](https://github.com/Rignchen/dgm-lexicon/archive/refs/heads/main.zip) from the repository.\
+Once you have installed the dependencies, you can [download the files](https://github.com/Rignchen/dmj-lexicon/archive/refs/heads/main.zip) from the repository.\
 Unzip the files in a folder of your choice.
 
 3. Install the dependencies
@@ -75,7 +75,7 @@ pnpm run build
 ```
 This will create a `dist` folder with the built files that you can host on your server.
 
-These files hold the entiere project under `dist/dgm-lexicon/browser`,
+These files hold the entiere project under `dist/dmj-lexicon/browser`,
 you can move this folder somewhere else and delete everything else if you want to.
 These can be hosted on any static file server
 ```bash
@@ -84,29 +84,29 @@ npx http-server
 
 ## Docker Installation
 1. Dependencies
-To install dgm-lexicon, you need to have [Docker](https://www.docker.com/) installed on your computer.
+To install dmj-lexicon, you need to have [Docker](https://www.docker.com/) installed on your computer.
 
 2. Get the files
-Once you have installed the dependencies, you can [download the files](https://github.com/Rignchen/dgm-lexicon/archive/refs/heads/main.zip) from the repository.\
+Once you have installed the dependencies, you can [download the files](https://github.com/Rignchen/dmj-lexicon/archive/refs/heads/main.zip) from the repository.\
 Unzip the files in a folder of your choice.
 
 3. Build the Docker image
 Once the files downloaded and unzipped, open a terminal in the folder and run the following command:
 ```bash
-docker build -t dgm-lexicon .
+docker build -t dmj-lexicon .
 ```
-This will build the Docker image with the name `dgm-lexicon`. Once that's done, you can remove all the files if you want to.
+This will build the Docker image with the name `dmj-lexicon`. Once that's done, you can remove all the files if you want to.
 
 4. Run the Docker container
 To run the Docker container, you can use the following command:
 ```bash
-docker run -d -p 80:8080 dgm-lexicon
+docker run -d -p 80:8080 dmj-lexicon
 ```
 This will start the production server and which will be accessible at [localhost](http://localhost).
 
 5. Stop the Docker container
 When you want to stop the website, you can use the following command:
 ```bash
-docker stop $(docker ps -q --filter ancestor=dgm-lexicon)
+docker stop $(docker ps -q --filter ancestor=dmj-lexicon)
 ```
 

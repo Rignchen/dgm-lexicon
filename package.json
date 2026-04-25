@@ -1,5 +1,5 @@
 {
-	"name": "dgm-lexicon",
+	"name": "dmj-lexicon",
 	"version": "0.0.0",
 	"imports": {
 		"#types/*": "./src/types/*.js",
@@ -14,7 +14,7 @@
 		"build": "ng build",
 		"watch": "ng build --watch --configuration development",
 		"test": "ng test",
-		"serve:ssr:dgm-lexicon": "node dist/dgm-lexicon/server/server.mjs"
+		"serve:ssr:dmj-lexicon": "node dist/dmj-lexicon/server/server.mjs"
 	},
 	"prettier": {
 		"overrides": [

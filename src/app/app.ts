@@ -13,10 +13,10 @@ export class App {
 		const size = 769;
 		this.meta.addTags([
 			{name: 'og:type', content: 'website'},
-			{name: 'og:url', content: 'https://rignchen.github.io/dgm-lexicon/'},
-			{name: 'og:description', content: 'Un lexique des références et des termes utilisés par la communauté de devenirgamemaster'},
+			{name: 'og:url', content: 'https://rignchen.github.io/dmj-lexicon/'},
+			{name: 'og:description', content: 'Un lexique des références et des termes utilisés par la communauté de devenirmaitredujeu'},
 			{name: 'og:title', content: 'DGM Lexicon'},
-			{name: 'og:image', content: 'https://rignchen.github.io/dgm-lexicon/qr-code.png'},
+			{name: 'og:image', content: 'https://rignchen.github.io/dmj-lexicon/qr-code.png'},
 			{name: 'og:image:alt', content: 'QR Code vers le lexique DGM'},
 			{name: 'og:image:width', content: `${size}`},
 			{name: 'og:image:height', content: `${size}`},

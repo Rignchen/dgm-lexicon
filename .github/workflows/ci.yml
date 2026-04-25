@@ -28,7 +28,7 @@ jobs:
           mv public/db-prod.csv public/db.csv
       - name: replace image links
         run: |
-          sed -i 's|!\(\[[^]]*\]\)(/assets/\([^)]*\))|!\1(/dgm-lexicon/assets/\2)|g' public/db.csv
+          sed -i 's|!\(\[[^]]*\]\)(/assets/\([^)]*\))|!\1(/dmj-lexicon/assets/\2)|g' public/db.csv
       # Build angular
       - name: Install dependencies
         run: |
@@ -36,14 +36,14 @@ jobs:
           pnpm install --frozen-lockfile
       - name: Build project
         run: |
-          pnpm build --configuration=production --base-href=/dgm-lexicon/
-          cp dist/dgm-lexicon/browser/index.html dist/dgm-lexicon/browser/404.html
+          pnpm build --configuration=production --base-href=/dmj-lexicon/
+          cp dist/dmj-lexicon/browser/index.html dist/dmj-lexicon/browser/404.html
       # Deploy on gh-pages branch
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/dgm-lexicon/browser
+          publish_dir: ./dist/dmj-lexicon/browser
           publish_branch: gh-pages
           user_name: github-actions[bot]
           user_email: github-actions[bot]@users.noreply.github.com
